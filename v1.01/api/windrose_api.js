@@ -61,10 +61,10 @@ function roll_to_dye(obj,d6,bonus) {
     if(getAttrByName(obj.id,getAttrByName(obj.id,"swing_color") + "_hidden") === 'false')
     {
             background_color = swing_color;
-            header_url = 'https://cdn.discordapp.com/attachments/752394290230984704/760400144927031306/Roll-to-dye-clear.png';
+            header_url = 'https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-dye-clear.png';
     }
     else
-        header_url = 'https://cdn.discordapp.com/attachments/752394290230984704/760394327406018580/Roll-to-dye2.jpg';
+        header_url = 'https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-dye.jpg';
     var outstr = '&{template:roll}{{color='+ background_color + '}}{{title=[Dye](' + header_url + ')}} ';
     var roll_val = 0;
     var roll_level = 0;
@@ -185,7 +185,7 @@ function roll_to_do(obj,selection,d6,bonus) {
         if(getAttrByName(obj.id,getAttrByName(obj.id,"swing_color") + "_hidden") === 'false')
             background_color = swing_color;
     }
-    var outstr = '&{template:custom}{{color='+ background_color + '}}{{title=[Do](https://cdn.discordapp.com/attachments/752394290230984704/760400140673482753/Roll-to-do-clear.png)}} ';
+    var outstr = '&{template:custom}{{color='+ background_color + '}}{{title=[Do](https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-do-clear.png)}} ';
     var roll_val = 0;
     var total_val = 0;
     var i;
