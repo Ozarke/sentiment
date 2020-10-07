@@ -101,33 +101,35 @@ function roll_to_dye(obj,d6,bonus) {
                 _type: 'attribute',
                 _characterid: obj.id
             }, {caseInsensitive: true})[0];
-            if(getAttrByName(obj.id, colors[i]+'_hidden') === 'true'){
-                outstr += '= [H](!wind hidden '+obj.id+')}}';
-            }else{
-                if(getAttrByName(obj.id,colors[i] + '_wounded','Current') === 'true'){
+
+            if(getAttrByName(obj.id,colors[i] + '_wounded','Current') === 'true'){
                     outstr += '= [W](!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';  
                     attribute.set('current','W');
-                }else{ 
-                    if(getAttrByName(obj.id,colors[i] + '_lockedout','Current') === 'true'){              
+            }else{ 
+                if(getAttrByName(obj.id,colors[i] + '_lockedout','Current') === 'true'){              
                         outstr += '= [L](!wind set-attribute-state ' + obj.id + ' ' + colors[i] + ' ' +'_lockedout'+ ' ' +'false)}}';
                         attribute.set('current','L');
-                    }else{
-                        roll_level = 0;
-                        if(colors[i] === getAttrByName(obj.id,"swing_color","Current"))
-                        {
+                }else{
+                    roll_level = 0;
+                    if(colors[i] === getAttrByName(obj.id,"swing_color","Current"))
+                    {
                             roll_val = parseInt(getAttrByName(obj.id,"swing_value","Current"));
                             roll_level = parseInt(getAttrByName(obj.id, colors[i]+'_level','Current'));
-                        }
-                        else
-                            roll_val = randomInteger(6);
+                    }
+                    else
+                        roll_val = randomInteger(6);
 
-                        total_val += roll_val + roll_level;    
-                        attribute.set('current',roll_val);
-
-                        outstr += '=[' + roll_val;
+                    total_val += roll_val + roll_level;    
+                    attribute.set('current',roll_val);
+                    if(getAttrByName(obj.id, colors[i]+'_hidden') === 'true')
+                    {
+                        outstr += '= [H](!wind hidden '+obj.id+')}}';
+                    }
+                    else
+                    {
+                        outstr += '=[' + roll_val + '](!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';
                         if(roll_level !== 0)
-                            outstr +='+'+ roll_level;                            
-                        outstr +='](!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';
+                            outstr += '{{swing=+ '+ roll_level +' **Swing**}}';
                     }
                 }
             }
@@ -174,7 +176,7 @@ function roll_to_dye(obj,d6,bonus) {
     dye_val.set('current',total_val);
     
     sendCustomChat(obj, outstr);
-} 
+}
 
 function roll_to_do(obj,selection,d6,bonus) {
     var swing_color = '';
