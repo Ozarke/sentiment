@@ -90,41 +90,45 @@ function roll_to_dye(obj,d6,bonus) {
         if(getAttrByName(obj.id, colors[i]+'_enabled','Current') === 'true'){
             if(getAttrByName(obj.id, colors[i]+'_hidden') === 'true')
             {
-                questionmarks += '?';
+                questionmarks += 'H';
                 colorstr = questionmarks;
             }
             else
                 colorstr = colors[i];
-            outstr +='{{' + colorstr; //+' Lvl: '+ getAttrByName(obj.id, colors[i]+'_level','Current');
+            outstr +='{{' + colorstr;
             attribute = findObjs({
                 name: colors[i] + '_value',
                 _type: 'attribute',
                 _characterid: obj.id
             }, {caseInsensitive: true})[0];
-            if(getAttrByName(obj.id,colors[i] + '_wounded','Current') === 'true'){
-                outstr += '= [W](!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';  
-                attribute.set('current','W');
-            }else{ 
-                if(getAttrByName(obj.id,colors[i] + '_lockedout','Current') === 'true'){              
-                    outstr += '= [L](!wind set-attribute-state ' + obj.id + ' ' + colors[i] + ' ' +'_lockedout'+ ' ' +'false)}}';
-                    attribute.set('current','L');
-                }else{
-                    roll_level = 0;
-                    if(colors[i] === getAttrByName(obj.id,"swing_color","Current"))
-                    {
-                        roll_val = parseInt(getAttrByName(obj.id,"swing_value","Current"));
-                        roll_level = parseInt(getAttrByName(obj.id, colors[i]+'_level','Current'));
+            if(getAttrByName(obj.id, colors[i]+'_hidden') === 'true'){
+                outstr += '= [H](!wind hidden '+obj.id+')}}';
+            }else{
+                if(getAttrByName(obj.id,colors[i] + '_wounded','Current') === 'true'){
+                    outstr += '= [W](!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';  
+                    attribute.set('current','W');
+                }else{ 
+                    if(getAttrByName(obj.id,colors[i] + '_lockedout','Current') === 'true'){              
+                        outstr += '= [L](!wind set-attribute-state ' + obj.id + ' ' + colors[i] + ' ' +'_lockedout'+ ' ' +'false)}}';
+                        attribute.set('current','L');
+                    }else{
+                        roll_level = 0;
+                        if(colors[i] === getAttrByName(obj.id,"swing_color","Current"))
+                        {
+                            roll_val = parseInt(getAttrByName(obj.id,"swing_value","Current"));
+                            roll_level = parseInt(getAttrByName(obj.id, colors[i]+'_level','Current'));
+                        }
+                        else
+                            roll_val = randomInteger(6);
+
+                        total_val += roll_val + roll_level;    
+                        attribute.set('current',roll_val);
+
+                        outstr += '=[' + roll_val;
+                        if(roll_level !== 0)
+                            outstr +='+'+ roll_level;                            
+                        outstr +='](!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';
                     }
-                    else
-                        roll_val = randomInteger(6);
-                    
-                    total_val += roll_val + roll_level;    
-                    attribute.set('current',roll_val);
-                    
-                    outstr += '=[' + roll_val;
-                    if(roll_level !== 0)
-                        outstr +='+'+ roll_level;                            
-                    outstr +='](!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';
                 }
             }
         }
@@ -132,14 +136,14 @@ function roll_to_dye(obj,d6,bonus) {
     
     if(parseInt(d6) !== 0)
     {
-        outstr += '{{ d6s = ';
+        outstr += '{{d6s= ';
         if(d6 > 0)
         {
             for(i = 0; i<parseInt(d6);i++)
             {
                 roll_val = randomInteger(6);
 
-                outstr += '[[' + roll_val + ']] ';
+                outstr += '+ [[' + roll_val + ']] ';
                 total_val += roll_val;
             }
         }
@@ -149,19 +153,17 @@ function roll_to_dye(obj,d6,bonus) {
             {
                 roll_val = randomInteger(6);
 
-                outstr += '[[-' + roll_val + ']] ';
+                outstr += '+ [[-' + roll_val + ']] ';
                 total_val -= roll_val;
             } 
         }
         outstr += '}}';
     }
     
-    outstr += '{{total= ';
     if (typeof(bonus) !== 'undefined' && parseInt(bonus) !== 0)
-        outstr += '[['+ (parseInt(total_val) + parseInt(bonus))+']] = [[' + total_val + ']] + **'+bonus +'** Bonus';
-    else
-        outstr += '[['+ total_val + ']]';
-    outstr += '}}';
+        outstr += '{{bonus=+ [['+parseInt(bonus)+']] ** Bonus **}}';
+
+    outstr += '{{total= [['+ total_val + ']]}}';
     
     var dye_val = findObjs({
         name: 'dye_value',

@@ -369,17 +369,30 @@
             {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
         </div>
         <div class="sheet-roll">
-            {{#total}}<div class="sheet-plus">Total</div><div class="sheet-plus">{{total}}</div><div class="sheet-plus">=</div>{{/total}}
-            {{#red}}<div class="sheet-red-roll">{{red}}</div>{{/red}}
-            {{#yellow}}<div class="sheet-plus">+</div><div class="sheet-yellow-roll">{{yellow}}</div>{{/yellow}}
-            {{#blue}}<div class="sheet-plus">+</div><div class="sheet-blue-roll">{{blue}}</div>{{/blue}}
-        </div>
-        <div class="sheet-content">
-            {{#allprops() title subtitle desc color red yellow blue total}}
-            <div class="sheet-key">{{key}}</div>
-            <div class="sheet-value">{{value}}</div>
-            {{/allprops() title subtitle desc color red yellow blue total}}
-            {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+            <div class="sheet-total">
+                {{#total}}<div>Total</div><div>{{total}}</div><div>=</div>{{/total}}
+            </div>
+            <div class="sheet-sum">
+                <div class="sheet-sum-color">
+                    {{#red}}<div class="sheet-color-roll sheet-red-roll">{{red}}</div>{{/red}}
+                    {{#yellow}}<div>+</div><div class="sheet-color-roll sheet-yellow-roll">{{yellow}}</div>{{/yellow}}
+                    {{#blue}}<div>+</div><div class="sheet-color-roll sheet-blue-roll">{{blue}}</div>{{/blue}}
+                    {{#green}}<div>+</div><div class="sheet-color-roll sheet-green-roll">{{green}}</div>{{/green}}
+                    {{#orange}}<div>+</div><div class="sheet-color-roll sheet-orange-roll">{{orange}}</div>{{/orange}}
+                    {{#purple}}<div>+</div><div class="sheet-color-roll sheet-purple-roll">{{purple}}</div>{{/purple}}
+                    {{#black}}<div>+</div><div class="sheet-color-roll sheet-black-roll">{{black}}</div>{{/black}}
+                    {{#H}}<div>+</div><div class="sheet-color-roll sheet-white-roll">{{H}}</div>{{/H}}
+                    {{#HH}}<div>+</div><div class="sheet-color-roll sheet-white-roll">{{HH}}</div>{{/HH}}
+                    {{#HHH}}<div>+</div><div class="sheet-color-roll sheet-white-roll">{{HHH}}</div>{{/HHH}}
+                    {{#HHHH}}<div>+</div><div class="sheet-color-roll sheet-white-roll">{{HHHH}}</div>{{/HHHH}}
+                </div>
+                {{#d6s}}<div>
+                    {{d6s}}
+                </div>{{/d6s}}
+                {{#bonus}}<div>
+                    {{bonus}}
+                </div>{{/bonus}}
+            </div>
         </div>
     </div>
 </rolltemplate>

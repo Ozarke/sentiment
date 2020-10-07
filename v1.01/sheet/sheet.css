@@ -613,38 +613,96 @@ div.sheet-swing{
   display: grid;
   background: #FFF;
   /* Header formatting - modify the column layout below */
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+  grid-template-columns: 40% auto;
   /* Line height to match default roll template */
-  line-height:1.4em;
-}
-.sheet-rolltemplate-roll .sheet-roll > div {
-  padding: 5px;
+  padding: 10px;
 }
 
-/* Left column */
-.sheet-rolltemplate-roll .sheet-roll .sheet-plus {
-  display: flex;
-  font-weight: bold;
-  align-items: center;
+
+.sheet-rolltemplate-roll .sheet-roll .sheet-total {
+  display: grid;
   text-align: center;
+  align-items: center;
+  grid-template-columns: auto auto auto;
+}
+.sheet-rolltemplate-roll .sheet-roll .sheet-total > div{
+  display: grid;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sheet-rolltemplate-roll .sheet-roll .sheet-sum {
+  display: inline-grid;
+  grid-template-rows: auto auto auto auto;
+  grid-gap:3px;
+}
+
+.sheet-rolltemplate-roll .sheet-roll .sheet-sum > div{
+  display: flex;  
+  justify-content: space-around;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+  font-weight: bold;
+}
+
+.sheet-rolltemplate-roll .sheet-roll .sheet-sum .sheet-sum-color {
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-gap:5px;
+}
+
+.sheet-rolltemplate-roll .sheet-roll .sheet-sum .sheet-sum-color > div{
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
 
 /* a tag*/
 .sheet-rolltemplate-roll .sheet-red-roll a {
   color: black;
-  font-weight: bold;
   background-color: #F67381;
 }
 .sheet-rolltemplate-roll .sheet-yellow-roll a {
   color: black;
-  font-weight: bold;
   background-color: #FECC51;
 }
 .sheet-rolltemplate-roll .sheet-blue-roll a {
-  color: white;
-  font-weight: bold;
+  color: black;
   background-color: #72A7D3;
 }
+.sheet-rolltemplate-roll .sheet-green-roll a {
+  color: black;
+  background-color: green;
+}
+.sheet-rolltemplate-roll .sheet-orange-roll a {
+  color: black;
+  background-color: orange;
+}
+.sheet-rolltemplate-roll .sheet-purple-roll a {
+  color: black;
+  background-color: purple;
+}
+.sheet-rolltemplate-roll .sheet-black-roll a {
+  color: white;
+  background-color: black;
+}
+.sheet-rolltemplate-roll .sheet-white-roll a {
+  color: black;
+  background-color: lightgray;
+}
+
+.sheet-rolltemplate-roll .sheet-color-roll a {
+    font-weight: bold;
+    width: 15px;
+}
+
+.sheet-rolltemplate-roll .sheet-color-roll {
+  width: 100%;
+  text-align: center;
+}
+
 
 /* Allprops part */
 .sheet-rolltemplate-roll .sheet-content {
