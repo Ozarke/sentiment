@@ -85,10 +85,11 @@ function roll_to_dye(obj,d6,bonus) {
     }
     var colorstr = '';
     var questionmarks = '';
+    var swing_color = getAttrByName(obj.id,"swing_color","Current");
     for(i=0; i<colors.length; i++)
     {
         if(getAttrByName(obj.id, colors[i]+'_enabled','Current') === 'true'){
-            if(getAttrByName(obj.id, colors[i]+'_hidden') === 'true')
+            if(getAttrByName(obj.id, colors[i]+'_hidden') === 'true' && getAttrByName(obj.id, 'whisper','Current') === 'false')
             {
                 questionmarks += 'H';
                 colorstr = questionmarks;
@@ -111,26 +112,28 @@ function roll_to_dye(obj,d6,bonus) {
                         attribute.set('current','L');
                 }else{
                     roll_level = 0;
-                    if(colors[i] === getAttrByName(obj.id,"swing_color","Current"))
+                    if(colors[i] === swing_color)
                     {
                             roll_val = parseInt(getAttrByName(obj.id,"swing_value","Current"));
-                            roll_level = parseInt(getAttrByName(obj.id, colors[i]+'_level','Current'));
+                            roll_level = parseInt(getAttrByName(obj.id, colors[i]+'_level','Current'));                            
                     }
                     else
                         roll_val = randomInteger(6);
 
                     total_val += roll_val + roll_level;    
                     attribute.set('current',roll_val);
-                    if(getAttrByName(obj.id, colors[i]+'_hidden') === 'true')
+                    if(getAttrByName(obj.id, colors[i]+'_hidden') === 'true' && getAttrByName(obj.id, 'whisper','Current') === 'false')
                     {
                         outstr += '= [H](!wind hidden '+obj.id+')}}';
+                        if(colors[i] === swing_color)
+                            outstr += '{{swing=+ ?? **Swing Level**}}';
                     }
                     else
                     {
                         outstr += '=[' + roll_val + '](!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';
-                        if(roll_level !== 0)
-                            outstr += '{{swing=+ '+ roll_level +' **Swing**}}';
-                    }
+                        if(colors[i] === swing_color)
+                            outstr += '{{swing=+ [['+ roll_level +']] **Swing Level**}}';
+                    }                       
                 }
             }
         }
@@ -186,7 +189,7 @@ function roll_to_do(obj,selection,d6,bonus) {
     if(selection === "swing")
     {
         swing_color = getAttrByName(obj.id,"swing_color","Current");
-        if(getAttrByName(obj.id,getAttrByName(obj.id,"swing_color") + "_hidden") === 'false')
+        if(getAttrByName(obj.id,getAttrByName(obj.id,"swing_color") + "_hidden") === 'false' || getAttrByName(obj.id, 'whisper','Current' === 'true'))
             background_color = swing_color;
     }
     var outstr = '&{template:custom}{{color='+ background_color + '}}{{title=[Do](https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-do-clear.png)}} ';
@@ -215,31 +218,31 @@ function roll_to_do(obj,selection,d6,bonus) {
     
     total_val += roll_val;    
     outstr += '{{ d20 = [[' + roll_val + ']]}}';
-    var swing = parseInt(getAttrByName(obj.id,'swing_value',"Current"));
+    var swing_value = parseInt(getAttrByName(obj.id,'swing_value',"Current"));
     switch (selection){
         case 'swing':
-            if(swing !== 0)
+            if(swing_color !== '')
             {
                 var swing_level = parseInt(getAttrByName(obj.id,swing_color + '_level',"Current"));
-                total_val += swing + swing_level;
-                outstr += '{{ Swing = [['+swing+']] + ' + swing_level + ' level}}';
+                total_val += swing_value + swing_level;
+                outstr += '{{ Swing = [['+swing_value+']] + ' + swing_level + ' level}}';
             }
             else
                 outstr += '{{Swing = No Swing}}';
             break;
         case 'none':
-            if(swing !== 0)
+            if(swing_color !== '')
                 drop_swing(obj);
             break;
         default:
             var roll = randomInteger(6);
-            if(swing !== 0)
+            if(swing_color !== '')
                 drop_swing(obj);
             if(getAttrByName(obj.id,selection + '_wounded','Current') === 'false' &&  getAttrByName(obj.id,selection + '_lockedout','Current') === 'false' && getAttrByName(obj.id,selection + '_enabled','Current') === 'true')
             {
                 var color_level = parseInt(getAttrByName(obj.id,selection + '_level',"Current"));
                 total_val += roll + color_level;
-                if(getAttrByName(obj.id,selection + '_hidden') === 'false')
+                if(getAttrByName(obj.id,selection + '_hidden') === 'false' || getAttrByName(obj.id, 'whisper','Current' === 'true'))
                     outstr += '{{ '+ capitalize(selection)+' = [['+roll+']] + ' + color_level + ' level}}';
                 else
                     outstr += '{{ ??? = [['+roll+']] + ' + color_level + ' level}}';

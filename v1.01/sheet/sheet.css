@@ -620,26 +620,26 @@ div.sheet-swing{
 
 
 .sheet-rolltemplate-roll .sheet-roll .sheet-total {
-  display: grid;
-  text-align: center;
-  align-items: center;
+  display: inline-grid;
   grid-template-columns: auto auto auto;
 }
 .sheet-rolltemplate-roll .sheet-roll .sheet-total > div{
-  display: grid;
-  text-align: center;
+  display: flex;  
+  justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
   font-weight: bold;
 }
 
 .sheet-rolltemplate-roll .sheet-roll .sheet-sum {
   display: inline-grid;
   grid-template-rows: auto auto auto auto;
-  grid-gap:3px;
 }
 
 .sheet-rolltemplate-roll .sheet-roll .sheet-sum > div{
   display: flex;  
-  justify-content: space-around;
+  justify-content: space-between;
   padding-top: 5px;
   padding-bottom: 5px;
   align-items: center;
