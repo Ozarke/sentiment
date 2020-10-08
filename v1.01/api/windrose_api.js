@@ -166,7 +166,10 @@ function roll_to_dye(obj,d6,bonus) {
     }
     
     if (typeof(bonus) !== 'undefined' && parseInt(bonus) !== 0)
+    {
         outstr += '{{bonus=+ [['+parseInt(bonus)+']] ** Bonus **}}';
+        total_val += parseInt(bonus);
+    }
 
     outstr += '{{total= [['+ total_val + ']]}}';
     
