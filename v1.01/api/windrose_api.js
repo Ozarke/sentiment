@@ -126,7 +126,7 @@ function roll_to_dye(obj,d6,bonus) {
                     {
                         outstr += '= [H](!wind hidden '+obj.id+')}}';
                         if(colors[i] === swing_color)
-                            outstr += '{{swing=+ ?? **Swing Level**}}';
+                            outstr += '{{swing=+ [H](!wind hidden '+obj.id+') **Swing Level**}}';
                     }
                     else
                     {
@@ -192,7 +192,7 @@ function roll_to_do(obj,selection,d6,bonus) {
     if(selection === "swing")
     {
         swing_color = getAttrByName(obj.id,"swing_color","Current");
-        if(getAttrByName(obj.id,getAttrByName(obj.id,"swing_color") + "_hidden") === 'false' || getAttrByName(obj.id, 'whisper','Current' === 'true'))
+        if(getAttrByName(obj.id,getAttrByName(obj.id,"swing_color") + "_hidden") === 'false' || getAttrByName(obj.id, 'whisper','Current') === 'true')
             background_color = swing_color;
     }
     var outstr = '&{template:custom}{{color='+ background_color + '}}{{title=[Do](https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-do-clear.png)}} ';
@@ -228,7 +228,10 @@ function roll_to_do(obj,selection,d6,bonus) {
             {
                 var swing_level = parseInt(getAttrByName(obj.id,swing_color + '_level',"Current"));
                 total_val += swing_value + swing_level;
-                outstr += '{{ Swing = [['+swing_value+']] + ' + swing_level + ' level}}';
+                if(getAttrByName(obj.id, swing_color +'_hidden') !== 'true' || getAttrByName(obj.id, 'whisper','Current') === 'true')
+                    outstr += '{{ Swing = [['+swing_value+']] + ' + swing_level + ' level}}';
+                else
+                    outstr += '{{ Swing = [H](!wind hidden '+obj.id+') + ? level}}';                
             }
             else
                 outstr += '{{Swing = No Swing}}';

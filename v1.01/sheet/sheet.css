@@ -426,7 +426,7 @@ div.sheet-swing{
 /* example colors */
 .sheet-rolltemplate-custom .sheet-container {
   /* this is the default color */
-  --header-bg-color: transparent;
+  --header-bg-color: gray;
   --header-text-color: #000;
 }
 .sheet-rolltemplate-custom .sheet-container.sheet-color-red{
@@ -576,7 +576,7 @@ div.sheet-swing{
 /* example colors */
 .sheet-rolltemplate-roll .sheet-container {
   /* this is the default color */
-  --header-bg-color: transparent;
+  --header-bg-color: gray;
   --header-text-color: #000;
 }
 .sheet-rolltemplate-roll .sheet-container.sheet-color-red{
