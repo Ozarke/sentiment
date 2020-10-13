@@ -291,7 +291,7 @@ function roll_to_do(obj,selection,d6,bonus) {
     if(parseInt(bonus) !== 0)
     {
         total_val += parseInt(bonus);
-        outstr += '{{bonus= [[' + bonus + ']]}}';
+        outstr += '{{bonus=+ [['+parseInt(bonus)+']] ** Bonus **}}';
     }
     
     outstr += '{{total= [[' + total_val + ']]}}';
