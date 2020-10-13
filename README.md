@@ -4,4 +4,4 @@ The effort for this project is to develop windrose character sheets and API scri
 Versions will be seperated by compatibilty. V1 to V2 will require re-implment tokens and setting up character sheets.\
 \
 V1.00 is functional.\
-V1.01 roll to dye finished. Playable/work in progress.
+V1.01 roll to do finished. Playable/work in progress.
