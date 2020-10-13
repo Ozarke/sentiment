@@ -126,13 +126,13 @@ function roll_to_dye(obj,d6,bonus) {
                     {
                         outstr += '= [H](!wind hidden '+obj.id+')}}';
                         if(colors[i] === swing_color)
-                            outstr += '{{swing=+ [H](!wind hidden '+obj.id+') **Swing Level**}}';
+                            outstr += '{{swing=+ [H](!wind hidden '+obj.id+') **Attribute Level**}}';
                     }
                     else
                     {
                         outstr += '=[' + roll_val + '](!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';
                         if(colors[i] === swing_color)
-                            outstr += '{{swing=+ [['+ roll_level +']] **Swing Level**}}';
+                            outstr += '{{swing=+ [['+ roll_level +']] **Attribute Level**}}';
                     }                       
                 }
             }
@@ -189,13 +189,13 @@ function roll_to_do(obj,selection,d6,bonus) {
     var background_color = '';  
     var crit_fail = false;
     var crit_succ = false;
+    swing_color = getAttrByName(obj.id,"swing_color","Current");
     if(selection === "swing")
-    {
-        swing_color = getAttrByName(obj.id,"swing_color","Current");
+    {        
         if(getAttrByName(obj.id,getAttrByName(obj.id,"swing_color") + "_hidden") === 'false' || getAttrByName(obj.id, 'whisper','Current') === 'true')
             background_color = swing_color;
     }
-    var outstr = '&{template:custom}{{color='+ background_color + '}}{{title=[Do](https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-do-clear.png)}} ';
+    var outstr = '&{template:roll}{{color='+ background_color + '}}{{title=[Do](https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-do-clear.png)}} ';
     var roll_val = 0;
     var total_val = 0;
     var i;
@@ -220,7 +220,7 @@ function roll_to_do(obj,selection,d6,bonus) {
         crit_fail = true;
     
     total_val += roll_val;    
-    outstr += '{{ d20 = [[' + roll_val + ']]}}';
+    outstr += '{{d20=' + roll_val + '}}';
     var swing_value = parseInt(getAttrByName(obj.id,'swing_value',"Current"));
     switch (selection){
         case 'swing':
@@ -229,12 +229,13 @@ function roll_to_do(obj,selection,d6,bonus) {
                 var swing_level = parseInt(getAttrByName(obj.id,swing_color + '_level',"Current"));
                 total_val += swing_value + swing_level;
                 if(getAttrByName(obj.id, swing_color +'_hidden') !== 'true' || getAttrByName(obj.id, 'whisper','Current') === 'true')
-                    outstr += '{{ Swing = [['+swing_value+']] + ' + swing_level + ' level}}';
+                    outstr += '{{' + swing_color+ '= ['+swing_value+'](!wind dye '+obj.id+')}}';
                 else
-                    outstr += '{{ Swing = [H](!wind hidden '+obj.id+') + ? level}}';                
+                    outstr += '{{h= [H](!wind hidden '+obj.id+')}}';
+                outstr += '{{swing=+ [['+ swing_level +']] **Attribute Level**}}';
             }
             else
-                outstr += '{{Swing = No Swing}}';
+                outstr += '{{swing= No Swing}}';
             break;
         case 'none':
             if(swing_color !== '')
@@ -249,9 +250,10 @@ function roll_to_do(obj,selection,d6,bonus) {
                 var color_level = parseInt(getAttrByName(obj.id,selection + '_level',"Current"));
                 total_val += roll + color_level;
                 if(getAttrByName(obj.id,selection + '_hidden') === 'false' || getAttrByName(obj.id, 'whisper','Current' === 'true'))
-                    outstr += '{{ '+ capitalize(selection)+' = [['+roll+']] + ' + color_level + ' level}}';
+                    outstr += '{{'+ selection +'= ['+roll+'](!wind dye '+obj.id+')}}';
                 else
-                    outstr += '{{ ??? = [['+roll+']] + ' + color_level + ' level}}';
+                    outstr += '{{h= [H](!wind hidden '+obj.id+')}}';
+                outstr += '{{swing=+ [['+ color_level +']] **Attribute Level**}}';
             }
             else
             {
@@ -263,7 +265,7 @@ function roll_to_do(obj,selection,d6,bonus) {
 
     if(parseInt(d6) !== 0)
     {
-        outstr += '{{ d6s = ';
+        outstr += '{{d6s= ';
         if(d6 > 0)
         {
             for(i = 0; i<parseInt(d6);i++)
@@ -289,10 +291,10 @@ function roll_to_do(obj,selection,d6,bonus) {
     if(parseInt(bonus) !== 0)
     {
         total_val += parseInt(bonus);
-        outstr += '{{ Bonus = [[' + bonus + ']]}}';
+        outstr += '{{bonus= [[' + bonus + ']]}}';
     }
     
-    outstr += '{{ Total = [[' + total_val + ']]}}';
+    outstr += '{{total= [[' + total_val + ']]}}';
     //if(crit_fail)
     //    outstr += '{{desc=[fail](https://en.bloggif.com/tmp/23c06fc335c4ec7d17a2384e658cca5e/text.gif)}}';
     //if(crit_succ)

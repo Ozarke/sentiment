@@ -703,7 +703,6 @@ div.sheet-swing{
   text-align: center;
 }
 
-
 /* Allprops part */
 .sheet-rolltemplate-roll .sheet-content {
   display: grid;
@@ -724,6 +723,46 @@ div.sheet-swing{
   justify-content: flex-end;
   align-items: center;
 }
+.sheet-rolltemplate-roll .sheet-d20 {
+display: inline-block;
+min-width: 30px;
+text-align: center;
+align-items: center;
+position: relative;
+}
+
+.sheet-rolltemplate-roll .sheet-d20-first {
+  display: flex;
+  justify-content: space-between;
+  text-shadow: -1px -1px 1px #FFF, 1px -1px 1px #FFF, -1px 1px 1px #FFF, 1px 1px 1px #FFF;
+  z-index:2;
+  height: auto;
+  align-items: center;
+  text-align: center; 
+  vertical-align: middle;
+  color: black;
+  position:relative;
+  min-height: 30px;
+  margin-top: 0px;  
+  top: 0px;
+  left: 0px;
+  box-sizing: content-box;
+}
+.sheet-rolltemplate-roll .sheet-d20-second {
+  font-family: 'dicefontd20';
+  font-weight: normal;
+  width: 100%;
+  color: black;
+  opacity: .75;
+  text-align: center;
+  font-size: 30px;
+  position:absolute;
+  top: 7px;
+  left: 0px;
+  box-sizing: content-box;
+  z-index:1;
+}
+
 
 /* Empty rule, use this if you want to change the right column */
 .sheet-rolltemplate-roll .sheet-value {

@@ -374,7 +374,11 @@
             </div>
             <div class="sheet-sum">
                 <div class="sheet-sum-color">
-                    {{#red}}<div class="sheet-color-roll sheet-red-roll">{{red}}</div>{{/red}}
+                    {{#d20}}<div class="sheet-d20">
+                        <div class="sheet-d20-first">{{d20}}</div>
+                        <div class="sheet-d20-second">0</div>                        
+                    </div>{{/d20}}                    
+                    {{#red}}<div>+</div><div class="sheet-color-roll sheet-red-roll">{{red}}</div>{{/red}}
                     {{#yellow}}<div>+</div><div class="sheet-color-roll sheet-yellow-roll">{{yellow}}</div>{{/yellow}}
                     {{#blue}}<div>+</div><div class="sheet-color-roll sheet-blue-roll">{{blue}}</div>{{/blue}}
                     {{#green}}<div>+</div><div class="sheet-color-roll sheet-green-roll">{{green}}</div>{{/green}}
