@@ -130,7 +130,13 @@ function roll_to_dye(obj,d6,bonus) {
                     }
                     else
                     {
-                        outstr += '=[' + roll_val + '](!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';
+                        if(roll_val !== 6 && roll_val !== 1)
+                            outstr += '= [' + roll_val + ']';
+                        else if (roll_val === 6)
+                                outstr += '= [<div style="color:#247305">' + roll_val + '</div>]';
+                             else
+                                outstr += '= [<div style="color:#730505">' + roll_val + '</div>]';
+                        outstr+= '(!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';
                         if(colors[i] === swing_color)
                             outstr += '{{swing=+ [['+ roll_level +']] **Attribute Level**}}';
                     }                       
@@ -219,8 +225,15 @@ function roll_to_do(obj,selection,d6,bonus) {
     if (roll_val === 1)
         crit_fail = true;
     
-    total_val += roll_val;    
-    outstr += '{{d20=' + roll_val + '}}';
+    total_val += roll_val;
+    outstr += '{{d20=';
+    if(roll_val !== 20 && roll_val !== 1)
+        outstr += + roll_val;
+        else if (roll_val === 20)
+                outstr += '<div style="color:#247305">' + roll_val + '</div>';
+            else
+                outstr += '<div style="color:#730505">' + roll_val + '</div>';    
+    outstr += '}}';
     var swing_value = parseInt(getAttrByName(obj.id,'swing_value',"Current"));
     switch (selection){
         case 'swing':
@@ -242,15 +255,24 @@ function roll_to_do(obj,selection,d6,bonus) {
                 drop_swing(obj);
             break;
         default:
-            var roll = randomInteger(6);
+            var roll_val = randomInteger(6);
             if(swing_color !== '')
                 drop_swing(obj);
             if(getAttrByName(obj.id,selection + '_wounded','Current') === 'false' &&  getAttrByName(obj.id,selection + '_lockedout','Current') === 'false' && getAttrByName(obj.id,selection + '_enabled','Current') === 'true')
             {
                 var color_level = parseInt(getAttrByName(obj.id,selection + '_level',"Current"));
-                total_val += roll + color_level;
+                total_val += roll_val + color_level;
                 if(getAttrByName(obj.id,selection + '_hidden') === 'false' || getAttrByName(obj.id, 'whisper','Current' === 'true'))
-                    outstr += '{{'+ selection +'= ['+roll+'](!wind dye '+obj.id+')}}';
+                    {
+                    outstr += '{{'+ selection +'= ';
+                    if(roll_val !== 6 && roll_val !== 1)
+                            outstr += '[' + roll_val + ']';
+                        else if (roll_val === 6)
+                                outstr += '[<div style="color:#247305">' + roll_val + '</div>]';
+                             else
+                                outstr += '[<div style="color:#730505">' + roll_val + '</div>]';
+                    outstr += '(!wind dye '+obj.id+')}}';
+                    }
                 else
                     outstr += '{{h= [H](!wind hidden '+obj.id+')}}';
                 outstr += '{{swing=+ [['+ color_level +']] **Attribute Level**}}';
