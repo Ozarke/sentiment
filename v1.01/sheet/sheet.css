@@ -723,6 +723,13 @@ div.sheet-swing{
   justify-content: flex-end;
   align-items: center;
 }
+.sheet-rolltemplate-roll .sheet-d6 {
+    display: grid !important;
+    min-width: 30px;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap:5px;
+}
+
 .sheet-rolltemplate-roll .sheet-d20 {
 display: inline-block;
 min-width: 30px;

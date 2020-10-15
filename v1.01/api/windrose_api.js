@@ -282,7 +282,7 @@ function roll_to_do(obj,selection,d6,bonus) {
             {
                 roll_val = randomInteger(6);
 
-                outstr += '[[-' + roll_val + ']] ';
+                outstr += '+ [[-' + roll_val + ']] ';
                 total_val -= roll_val;
             } 
         }
