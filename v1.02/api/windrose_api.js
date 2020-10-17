@@ -525,7 +525,7 @@ function set_swing(obj,color,value,recalc_dye) {
         }
 
         swing.set('current',swing_value);
-        outstr += 'swing is a '
+        outstr += 'swing is a ';
         if(getAttrByName(obj.id,color+'_hidden') === 'false')
             outstr += color;
         else
@@ -541,7 +541,7 @@ function set_swing(obj,color,value,recalc_dye) {
     }
     else
     {
-        outstr = 'swing was not set the attribute selected is either locked, wounded or not enabled'
+        outstr = 'swing was not set the attribute selected is either locked, wounded or not enabled';
         sendCustomChat(obj, outstr, true);
     }
 
