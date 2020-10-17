@@ -6,7 +6,7 @@ Versions will be seperated by compatibilty. V1 to V2 will require re-implment to
 This api requires Pro level subscribtion on roll20. The code provided are both an API script and a character sheet. These must be used together.
 Fist figure out what version you would like ot use. V1.02 is the most recent.
 ### API Installation
-Navigate to the Game Details Page of the target game. Once there, Select API Scripts from Setting dropdown.
+Navigate to the Game Details Page of the target game. Once there, Select API Scripts from Settings dropdown.
 <p align="center">
   <img align="middle" src="https://roll20.zendesk.com/hc/article_attachments/360067045633/API_Test___Roll20__Online_virtual_tabletop__1_.png" width= "40%"/>
 </p>
@@ -19,11 +19,15 @@ The first script that should be added is the windrose_api.js. This is the core o
 The name the script added does not matter and can be named anything.<br/>
 Copy the entire text of the windrose_api.js into this new script.<br/>
 <br/>
-The next scrip is an optional script that is an edited version of ChangeTokenImage.<br/>
+The next scrip is WindroseChangeTokenImage.js an optional script that is an edited version of ChangeTokenImage.js.<br/>
 This scripts allows the Token Image change automaticly based on selected swing.<br/>
 Again, create a new script using the link and copy all the code over.
 
 ### Character Sheet Installation
+Navigate to the Game Details Page of the target game. Once there, Select Game Settings from Settings dropdown.<br/>
+Scroll down to Character Sheet Template.<br/>
+From the drop down select Custom.<br/>
+In this area copy sheet.html to the HTML Layout section and sheet.css to the CSS Sytling section.
 
 # Verisions
 V1.00 Intial Version.<br/>
