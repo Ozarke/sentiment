@@ -78,12 +78,11 @@ function roll_to_dye(obj,d6,bonus) {
     var background_color = '';    
     var header_url = '';
     header_url = 'https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-dye.jpg';
-    if(swing_color !== "")
-        if(getAttrByName(obj.id,swing_color + "_hidden") === 'false')
-        {
-                background_color = swing_color;
-                header_url = 'https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-dye-clear.png';
-        }            
+    if(swing_color !== "" && getAttrByName(obj.id,swing_color + "_hidden") === 'false')
+    {
+            background_color = swing_color;
+            header_url = 'https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-dye-clear.png';
+    }            
     var outstr = '&{template:roll}{{color='+ background_color + '}}{{title=[Dye](' + header_url + ')}} ';
     var roll_val = 0;
     var roll_level = 0;
