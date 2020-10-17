@@ -6,4 +6,4 @@ Versions will be seperated by compatibilty. V1 to V2 will require re-implment to
 V1.00 Intial Version.\
 V1.01 Added Roll to Do and Roll to Dye template.\
 V1.02 Added white and grey dye, fixed colors for character sheets swing, added version attribute and new initializtion function.\
-Note: V1.02 will "re-initialize" characters this will not change setting in the character. It will only add grey and white functionality.\
+Note: V1.02 will "re-initialize" characters this will not change setting in the character. It will only add grey and white functionality.
