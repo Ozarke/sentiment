@@ -216,7 +216,7 @@ function roll_to_do(obj,selection,d6,bonus) {
     swing_color = getAttrByName(obj.id,"swing_color","Current");
     if(selection === "swing")
     {        
-        if(getAttrByName(obj.id,getAttrByName(obj.id,"swing_color") + "_hidden") === 'false' || getAttrByName(obj.id, 'whisper','Current') === 'true')
+        if((swing_color !== "" && getAttrByName(obj.id,swing_color + "_hidden") === 'false') || getAttrByName(obj.id, 'whisper','Current') === 'true')
             background_color = swing_color;
     }
     var outstr = '&{template:roll}{{color='+ background_color + '}}{{title=[Do](https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-do-clear.png)}} ';
