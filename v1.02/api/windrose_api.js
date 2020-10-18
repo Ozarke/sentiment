@@ -1,3 +1,5 @@
+/* global _ */
+
 on('chat:message',function(msg){
     'use strict';
 
@@ -260,10 +262,15 @@ function roll_to_do(obj,selection,d6,bonus) {
                 var swing_level = parseInt(getAttrByName(obj.id,swing_color + '_level',"Current"));
                 total_val += swing_value + swing_level;
                 if(getAttrByName(obj.id, swing_color +'_hidden') !== 'true' || getAttrByName(obj.id, 'whisper','Current') === 'true')
+                {
                     outstr += '{{' + swing_color+ '= ['+swing_value+'](!wind dye '+obj.id+')}}';
+                    outstr += '{{swing=+ [['+ swing_level +']] **Attribute Level**}}';
+                }
                 else
-                    outstr += '{{h= [H](!wind hidden '+obj.id+')}}';
-                outstr += '{{swing=+ [['+ swing_level +']] **Attribute Level**}}';
+                {
+                    outstr += '{{H= [H](!wind hidden '+obj.id+')}}';
+                    outstr += '{{swing=+ [H](!wind hidden '+obj.id+') **Attribute Level**}}';                    
+                }
             }
             else
                 outstr += '{{swing= No Swing}}';
@@ -290,10 +297,13 @@ function roll_to_do(obj,selection,d6,bonus) {
                              else
                                 outstr += '[<div style="color:#730505">' + roll_val + '</div>]';
                     outstr += '(!wind dye '+obj.id+')}}';
+                    outstr += '{{swing=+ [['+ color_level +']] **Attribute Level**}}';
                     }
                 else
-                    outstr += '{{h= [H](!wind hidden '+obj.id+')}}';
-                outstr += '{{swing=+ [['+ color_level +']] **Attribute Level**}}';
+                {
+                    outstr += '{{H= [H](!wind hidden '+obj.id+')}}';
+                    outstr += '{{swing=+ [H](!wind hidden '+obj.id+') **Attribute Level**}}';
+                }
             }
             else
             {
@@ -453,7 +463,10 @@ function set_attribute_level(obj,color,value)
     if(getAttrByName(obj.id,color+'_hidden') === 'false')
         outstr += color;
     else
-        outstr += '???';        
+    {
+        outstr += '???';       
+        value = '???';
+    }
     outstr += ' to level ' + value;
     sendCustomChat(obj, outstr,'/em ');    
 }
@@ -529,11 +542,17 @@ function set_swing(obj,color,value,recalc_dye) {
         if(getAttrByName(obj.id,color+'_hidden') === 'false')
             outstr += color;
         else
+        {
             outstr += '???';
+            dye_value = '??';
+            swing_value = '?';
+        }
         outstr +=' ' + swing_value; 
         if(recalc_dye ==='true')
         {
-           outstr += ' with a new roll to dye of ' + parseInt(dye_value);
+           if(old_swing !== '' && getAttrByName(obj.id,old_swing+'_hidden') === 'true')
+              dye_value = '??';
+           outstr += ' with a new roll to dye of ' + dye_value;
         }
         outstr += '!';
         set_image(obj,color);
