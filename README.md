@@ -22,7 +22,7 @@ Copy the entire text of the windrose_api.js into this new script.<br/>
 The next scrip is WindroseChangeTokenImage.js an optional script that is an edited version of ChangeTokenImage.js.<br/>
 This scripts allows the Token Image change automaticly based on selected swing.<br/>
 Again, create a new script using the link and copy all the code over.<br/>
-Once, installed the Image Set property must be checked in the character sheet. In addtion, a rollable table must be used as the token.
+Once, installed the Image Set property must be checked in the character sheet. In addtion, a rollable table must be used as the token.<br/>
  <img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/config_imageset.png" width="50%"/>
  <img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/rolltable_example.png"/>
 
