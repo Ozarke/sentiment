@@ -732,6 +732,7 @@ div.sheet-swing{
 .sheet-rolltemplate-roll .sheet-green-roll a {
   color: black;
   background-color: green;
+  background-image: url(https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern.png) !important;
 }
 .sheet-rolltemplate-roll .sheet-orange-roll a {
   color: black;
@@ -740,14 +741,17 @@ div.sheet-swing{
 .sheet-rolltemplate-roll .sheet-purple-roll a {
   color: black;
   background-color: purple;
+  background-image: url(https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern.png) !important;
 }
 .sheet-rolltemplate-roll .sheet-black-roll a {
   color: white;
   background-color: black;
+  background-image: url(https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern.png) !important;
 }
 .sheet-rolltemplate-roll .sheet-grey-roll a {
   color: black;
   background-color: grey;
+  background-image: url(https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern.png) !important;
 }
 .sheet-rolltemplate-roll .sheet-white-roll a {
   color: black;
@@ -757,7 +761,10 @@ div.sheet-swing{
 
 .sheet-rolltemplate-roll .sheet-color-roll a {
     font-weight: bold;
-    width: 15px;
+    width: 15px;   
+    background-image: url(https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern-dark.png);
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
 }
 
 .sheet-rolltemplate-roll .sheet-color-roll {
