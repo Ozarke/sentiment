@@ -32,7 +32,7 @@ Scroll down to Character Sheet Template.<br/>
 From the drop down select Custom.<br/>
 In this area copy sheet.html to the HTML Layout section and sheet.css to the CSS Sytling section.
 
-# Verisions
+# Version
 V1.00 Intial Version.<br/>
 V1.01 Added Roll to Do and Roll to Dye template.<br/>
 V1.02 Added white and grey dye, fixed colors for character sheets swing, added version attribute and new initializtion function.<br/>
