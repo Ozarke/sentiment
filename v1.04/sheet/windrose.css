@@ -146,13 +146,13 @@ button:hover {
     background-color: #FECC51;
 }
 .sheet-green {
-    background-color: green;
+    background-color: #96D685;
 }
 .sheet-orange {
-    background-color: orange;
+    background-color: #FEB072;
 }
 .sheet-purple {
-    background-color: purple;
+    background-color: #D1B8ED;
 }
 .sheet-black {
     background-color: black;
@@ -261,15 +261,15 @@ button:hover {
     color:black;
 }
 .sheet-color-swing[value=green] ~ .sheet-color-swing-receiver{
-    background-color:green;
+    background-color:#96D685;
     color:black;
 }
 .sheet-color-swing[value=orange] ~ .sheet-color-swing-receiver{
-    background-color:orange;
+    background-color:#FEB072;
     color:black;
 }
 .sheet-color-swing[value=purple] ~ .sheet-color-swing-receiver{
-    background-color:purple;
+    background-color:#D1B8ED;
     color:black;
 }
 .sheet-color-swing[value=black] ~ .sheet-color-swing-receiver{
@@ -499,15 +499,15 @@ div.sheet-swing{
     --header-text-color: #000;
 }
 .sheet-rolltemplate-custom .sheet-container.sheet-color-green{
-    --header-bg-color:green;
+    --header-bg-color:#96D685;
     --header-text-color: #FFF;
 }
 .sheet-rolltemplate-custom .sheet-container.sheet-color-orange{
-    --header-bg-color:orange;
+    --header-bg-color:#FEB072;
     --header-text-color: #000;
 }
 .sheet-rolltemplate-custom .sheet-container.sheet-color-purple{
-    --header-bg-color:purple;
+    --header-bg-color:#D1B8ED;
     --header-text-color: #FFF;
 }
 .sheet-rolltemplate-custom .sheet-container.sheet-color-black{
@@ -657,15 +657,15 @@ div.sheet-swing{
     --header-text-color: #000;
 }
 .sheet-rolltemplate-roll .sheet-container.sheet-color-green{
-    --header-bg-color:green;
+    --header-bg-color:#96D685;
     --header-text-color: #FFF;
 }
 .sheet-rolltemplate-roll .sheet-container.sheet-color-orange{
-    --header-bg-color:orange;
+    --header-bg-color:#FEB072;
     --header-text-color: #000;
 }
 .sheet-rolltemplate-roll .sheet-container.sheet-color-purple{
-    --header-bg-color:purple;
+    --header-bg-color:#D1B8ED;
     --header-text-color: #FFF;
 }
 .sheet-rolltemplate-roll .sheet-container.sheet-color-black{
@@ -747,16 +747,15 @@ div.sheet-swing{
 }
 .sheet-rolltemplate-roll .sheet-green-roll a {
   color: black;
-  background-color: green;
-  background-image: url(https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern.png) !important;
+  background-color: #96D685;
 }
 .sheet-rolltemplate-roll .sheet-orange-roll a {
   color: black;
-  background-color: orange;
+  background-color: #FEB072;
 }
 .sheet-rolltemplate-roll .sheet-purple-roll a {
   color: black;
-  background-color: purple;
+  background-color: #D1B8ED;
   background-image: url(https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern.png) !important;
 }
 .sheet-rolltemplate-roll .sheet-black-roll a {
