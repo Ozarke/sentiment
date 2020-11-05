@@ -4,7 +4,6 @@ The effort for this project is to develop windrose character sheets and API scri
 Versions will be seperated by compatibilty. V1 to V2 will require re-implment tokens and setting up character sheets.
 # Installation
 This api requires Pro level subscribtion on roll20. The code provided are both an API scripts and a character sheet. These must be used together.
-First figure out what version you would like ot use. V1.03 is the most recent.
 ### API Installation
 Navigate to the Game Details Page of the target game. Once there, Select API Scripts from Settings dropdown.
 <p align="center">
