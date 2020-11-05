@@ -1,0 +1,571 @@
+<div class="main">
+    <div class="header tab">
+        <div>
+            <h1>Windrose Everlasting</h1>
+            <span class="normal" name='attr_character_name'><</span>
+        </div>
+        <div>
+            <button type="action" name="act_character" >Character</button>
+            <button type="action" name="act_configuration" >Configuration</button>
+            <button type="action" name="act_gifts" >Gifts</button>            
+        </div>
+    </div>
+    <input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
+    <div class="sheet-buttons-1">
+        <button type="roll" name="do" value="!wind roll-to-do @{character_id} ?{Choose attribute |swing|none|red|blue|yellow|green|purple|orange|black} ?{Choose amount of d6|0}  ?{Bonus|0}">Roll to Do</button>
+        <button type="roll" name="dye" value="!wind roll-to-dye @{character_id} ?{Choose amount of d6|0} ?{Bonus|0}">Roll to Dye</button>
+        <button type="roll" name="drop" value="!wind drop-swing @{character_id}">Drop Swing</button>
+        <button type="roll" name="set-swing" value="!wind set-swing @{character_id} ?{Choose color |red|blue|yellow|green|purple|orange|black}  ?{value|1|2|3|4|5|6}">Set Swing</button>    
+    </div>
+    <div class="sheet-buttons-2">
+        <button type="roll" name="wound" value="!wind prompt-attribute-change @{character_id} wound">Wound/Heal</button>
+        <button type="roll" name="lock" value="!wind prompt-attribute-change @{character_id} lock">Lock/Unlock</button>
+        <button type="roll" name="enable" value="!wind prompt-attribute-change @{character_id} enable">Add/Remove Attribute</button>
+        <button type="roll" name="set-attribute" value="!wind set-attribute-level @{character_id} ?{Choose color |red|blue|yellow|green|purple|orange|black}  ?{value|1}">Set Attribute Level</button>
+        <button type="roll" name="whisper" value="!wind toggle-whisper @{character_id}">Whisper</button>    
+    </div>
+    <div class="sheet-attribute-values  inset">
+        <div>
+            <div>
+                <input type='hidden' class='color-enabled' name='attr_red_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon red">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} red @{red_value} true" class="attribute-button">
+                        <span class="big-black" name="attr_red_value" type="number" value="1" minvalue="1"></span>   
+                    </button>                    
+                </div>
+            </div>
+            <div>
+                <input type='hidden' class='color-enabled' name='attr_yellow_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon yellow">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} yellow @{yellow_value} true" class="attribute-button">
+                        <span class="big-black" name="attr_yellow_value" type="number" value="1" minvalue="1"></span>
+                    </button> 
+                </div>
+            </div>
+            <div>
+                <input type='hidden' class='color-enabled' name='attr_blue_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon blue">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} blue @{blue_value} true" class="attribute-button">
+                        <span class="big-black" name="attr_blue_value" type="number" value="1" minvalue="1"></span>
+                    </button> 
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type='hidden' class='color-enabled' name='attr_green_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon green">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} green @{green_value} true" class="attribute-button">
+                        <span class="big-black" name="attr_green_value" type="number" value="1" minvalue="1"></span>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <input type='hidden' class='color-enabled' name='attr_orange_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon orange">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} orange @{orange_value} true" class="attribute-button">
+                        <span class="big-black" name="attr_orange_value" type="number" value="1" minvalue="1"></span>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <input type='hidden' class='color-enabled' name='attr_purple_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon purple">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} purple @{purple_value} true" class="attribute-button">
+                        <span class="big-black" name="attr_purple_value" type="number" value="1" minvalue="1"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type='hidden' class='color-enabled' name='attr_white_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon white">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} white @{white_value} true" class="attribute-button">
+                        <span class="big-black" name="attr_white_value" type="number" value="1" minvalue="1"></span>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <input type='hidden' class='color-enabled' name='attr_grey_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon grey">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} grey @{grey_value} true" class="attribute-button">
+                        <span class="big-black" name="attr_grey_value" type="number" value="1" minvalue="1"></span>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <input type='hidden' class='color-enabled' name='attr_black_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon-black black">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} black @{black_value} true" class="attribute-button">
+                        <span class="big-white" name="attr_black_value" type="number" value="1" minvalue="1"></span>
+                    </button>
+                </div>
+            </div>            
+        </div>
+    </div>
+    <div class="sheet-attribute-settings  inset">
+        <div class='small left'>Attribute</div>
+        <div class="small left">Level</div>
+        <div class="small sheet-grid-column">
+            <div class="toggle-container">
+                Wound
+            </div>
+            <div class="toggle-container">
+                Lock
+            </div>
+            <div class="toggle-container">
+                Enable
+            </div>
+            <div class="toggle-container">
+                Hide
+            </div>
+        </div>
+        <div class='small left'>Red</div>
+        <div><input name="attr_red_level" type="number" value="0"></div>
+        <div class="sheet-grid-column">
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_red_wounded" />
+                <button type="action" name="act_red_wounded" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_red_lockedout" />
+                <button type="action" name="act_red_lockedout" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_red_enabled" />
+                <button type="action" name="act_red_enabled" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_red_hidden" />
+                <button type="action" name="act_red_hidden" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+        </div>
+        
+        <div></div>
+        <div></div>
+        <div class='flex-middle'><input name="attr_red_name" type="text" value="Attribute Name"></div>
+
+        <div class='small left'>Yellow</div>
+        <div><input name="attr_yellow_level" type="number" value="0"></div>
+        <div class="sheet-grid-column">
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_yellow_wounded" />
+                <button type="action" name="act_yellow_wounded" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_yellow_lockedout" />
+                <button type="action" name="act_yellow_lockedout" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_yellow_enabled" />
+                <button type="action" name="act_yellow_enabled" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_yellow_hidden" />
+                <button type="action" name="act_yellow_hidden" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+        </div>
+
+        <div></div>
+        <div></div>
+        <div class='flex-middle'><input name="attr_yellow_name" type="text" value="Attribute Name"></div>
+        
+        <div class='small left'>Blue</div>
+        <div><input name="attr_blue_level" type="number" value="0"></div>        
+        <div class="sheet-grid-column">
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_blue_wounded" />
+                <button type="action" name="act_blue_wounded" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_blue_lockedout" />
+                <button type="action" name="act_blue_lockedout" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_blue_enabled" />
+                <button type="action" name="act_blue_enabled" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_blue_hidden" />
+                <button type="action" name="act_blue_hidden" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+        </div>
+
+        <div></div>
+        <div></div>
+        <div class='flex-middle'><input name="attr_blue_name" type="text" value="Attribute Name"></div>
+        
+        <div class='small left'>Green</div>
+        <div><input name="attr_green_level" type="number" value="0"></div>
+
+        <div class="sheet-grid-column">
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_green_wounded" />
+                <button type="action" name="act_green_wounded" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_green_lockedout" />
+                <button type="action" name="act_green_lockedout" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_green_enabled" />
+                <button type="action" name="act_green_enabled" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_green_hidden" />
+                <button type="action" name="act_green_hidden" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+        </div>
+
+        <div></div>
+        <div></div>
+        <div class='flex-middle'><input name="attr_green_name" type="text" value="Attribute Name"></div>
+        
+        <div class='small left'>Purple</div>
+        <div><input name="attr_purple_level" type="number" value="0"></div>
+
+        <div class="sheet-grid-column">
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_purple_wounded" />
+                <button type="action" name="act_purple_wounded" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_purple_lockedout" />
+                <button type="action" name="act_purple_lockedout" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_purple_enabled" />
+                <button type="action" name="act_purple_enabled" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_purple_hidden" />
+                <button type="action" name="act_purple_hidden" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+        </div>
+        <div></div>
+        <div></div>
+        <div class='flex-middle'><input name="attr_purple_name" type="text" value="Attribute Name"></div>
+        
+        <div class='small left'>Orange</div>
+        <div><input name="attr_orange_level" type="number" value="0"></div>
+
+        <div class="sheet-grid-column">
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_orange_wounded" />
+                <button type="action" name="act_orange_wounded" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_orange_lockedout" />
+                <button type="action" name="act_orange_lockedout" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_orange_enabled" />
+                <button type="action" name="act_orange_enabled" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_orange_hidden" />
+                <button type="action" name="act_orange_hidden" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+        </div>
+        <div></div>
+        <div></div>
+        <div class='flex-middle'><input name="attr_orange_name" type="text" value="Attribute Name"></div>
+        
+        <div class="small left">Black</div>
+        <div><input name="attr_black_level" type="number" value="0"></div>
+
+        <div class="sheet-grid-column">
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_black_wounded" />
+                <button type="action" name="act_black_wounded" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_black_lockedout" />
+                <button type="action" name="act_black_lockedout" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_black_enabled" />
+                <button type="action" name="act_black_enabled" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_black_hidden" />
+                <button type="action" name="act_black_hidden" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+        </div>
+        <div></div>
+        <div></div>
+        <div class='flex-middle'><input name="attr_black_name" type="text" value="Attribute Name"></div>
+        
+        <div class="small left">Grey</div>
+        <div><input name="attr_grey_level" type="number" value="0"></div>
+
+        <div class="sheet-grid-column">
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_grey_wounded" />
+                <button type="action" name="act_grey_wounded" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_grey_lockedout" />
+                <button type="action" name="act_grey_lockedout" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_grey_enabled" />
+                <button type="action" name="act_grey_enabled" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_grey_hidden" />
+                <button type="action" name="act_grey_hidden" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+        </div>
+        <div></div>
+        <div></div>
+        <div class='flex-middle'><input name="attr_grey_name" type="text" value="Attribute Name"></div>
+        
+        <div class="small left">White</div>
+        <div><input name="attr_white_level" type="number" value="0"></div>
+
+        <div class="sheet-grid-column">
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_white_wounded" />
+                <button type="action" name="act_white_wounded" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_white_lockedout" />
+                <button type="action" name="act_white_lockedout" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_white_enabled" />
+                <button type="action" name="act_white_enabled" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+            <div class="toggle-container">
+                <input type="hidden" class="toggle" name="attr_white_hidden" />
+                <button type="action" name="act_white_hidden" class="toggle">
+                    <span class="checked">✓</span>
+                </button>
+            </div>
+        </div>
+        <div></div>
+        <div></div>
+        <div class='flex-middle'><input name="attr_white_name" type="text" value="Attribute Name"></div>
+        
+        <div class="toggle-container small">
+
+        </div>
+        <div class="toggle-container small">
+
+        </div>
+        <div class="sheet-grid-column small" style="margin-top: 15px;">
+            <div>
+            Whisper:
+            <input type="hidden" class="toggle" name="attr_whisper" />
+            <button type="action" name="act_whisper" class="toggle">
+                <span class="checked">✓</span>
+            </button>
+            </div>
+            <div>
+            Image Set:<input type="hidden" class="toggle" name="attr_image_set" />
+            <button type="action" name="act_image_set" class="toggle">
+                <span class="checked">✓</span>
+            </button>
+            </div>
+        </div>
+    </div>
+    <div class="sheet-gifts inset">
+        <div class = "sheet-wrapper">
+            <fieldset class = "repeating_giftset">
+                <input name = "attr_giftname" class = "giftname inset" type ="text">
+                <input type ="checkbox" class = "sheet-toggle">
+                <button type = "roll" name = "paste" class = "sheet-paste" value ="@{giftname}:@{gift-desc}">Paste</button>
+                <textarea name = "attr_gift-desc" class = "sheet-gifttext"></textarea>
+            </fieldset>
+        </div>
+    </div>
+    <div class="footer inset">
+        <label>Health:
+            <input name="attr_health" type="number" value="10">
+        </label>
+        <label>EXP:
+            <input name="attr_exp" type="number" value="0">
+        </label>
+        <label>Speed:
+            <input name="attr_speed" type="number" value="30">
+        </label>
+        <label></label>
+        <label>Dye:
+            <span name="attr_dye_value"></span>
+        </label>
+    </div>
+    <div class="swing">        
+        <input type='hidden' value='' class='color-swing' name='attr_swing_color'/>
+        <div class="color-swing-receiver attr-icon black">
+            Swing
+            <span class="big" name="attr_swing_value" type="number" value="0" minvalue="0"></span>
+        </div>
+    </div>
+</div>
+
+<script type="text/worker">
+    const buttonList = ["character","configuration","gifts"];
+    buttonList.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+            sheetTab: button
+            });
+        });
+    });
+    const toggleList = ["red_wounded","red_lockedout","red_enabled","red_hidden",
+                        "blue_wounded","blue_lockedout","blue_enabled","blue_hidden",
+                        "yellow_wounded","yellow_lockedout","yellow_enabled","yellow_hidden",
+                        "green_wounded","green_lockedout","green_enabled","green_hidden",
+                        "orange_wounded","orange_lockedout","orange_enabled","orange_hidden",
+                        "purple_wounded","purple_lockedout","purple_enabled","purple_hidden",
+                        "black_wounded","black_lockedout","black_enabled","black_hidden",
+                        "grey_wounded","grey_lockedout","grey_enabled","grey_hidden",
+                        "white_wounded","white_lockedout","white_enabled","white_hidden",
+                        "image_set","whisper"];
+    toggleList.forEach(function(button) {
+        on(`clicked:${button}`, function() {
+            const flag = `${button}`;
+            // Check the current value of the hidden flag.
+            getAttrs([flag], function(v) {
+                // Update the value of the hidden flag to "1" for checked or "0" for unchecked.
+                setAttrs({
+                [flag]: v[flag] !== "false" ? "false" : "true"
+                });
+            });
+        });
+    });
+</script>
+
+<rolltemplate class="sheet-rolltemplate-roll">
+    <div class="sheet-container sheet-color-{{color}}">
+        <div class="sheet-header">
+            {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+            {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+        </div>
+        <div class="sheet-roll">
+            <div class="sheet-total">
+                {{#total}}<div>Total</div><div>{{total}}</div><div>=</div>{{/total}}
+            </div>
+            <div class="sheet-sum">
+                <div class="sheet-sum-color">
+                    {{#d20}}<div class="sheet-d20">
+                        <div class="sheet-d20-first">{{d20}}</div>
+                        <div class="sheet-d20-second">0</div>                        
+                    </div>{{/d20}}                    
+                    {{#red}}<div>+</div><div class="sheet-color-roll sheet-red-roll">{{red}}{{#red_level}}<span class="sheet-tooltip">{{#red_name}}{{red_name}}<br/>{{/red_name}}Level: {{red_level}}</span>{{/red_level}}</div>{{/red}}
+                    {{#yellow}}<div>+</div><div class="sheet-color-roll sheet-yellow-roll">{{yellow}}{{#yellow_level}}<span class="sheet-tooltip">{{#yellow_name}}{{yellow_name}}<br/>{{/yellow_name}}Level: {{yellow_level}}</span>{{/yellow_level}}</div>{{/yellow}}
+                    {{#blue}}<div>+</div><div class="sheet-color-roll sheet-blue-roll">{{blue}}{{#blue_level}}<span class="sheet-tooltip">{{#blue_name}}{{blue_name}}<br/>{{/blue_name}}Level: {{blue_level}}</span>{{/blue_level}}</div>{{/blue}}
+                    {{#green}}<div>+</div><div class="sheet-color-roll sheet-green-roll">{{green}}{{#green_level}}<span class="sheet-tooltip">{{#green_name}}{{green_name}}<br/>{{/green_name}}Level: {{green_level}}</span>{{/green_level}}</div>{{/green}}
+                    {{#orange}}<div>+</div><div class="sheet-color-roll sheet-orange-roll">{{orange}}{{#orange_level}}<span class="sheet-tooltip">{{#orange_name}}{{orange_name}}<br/>{{/orange_name}}Level: {{orange_level}}</span>{{/orange_level}}</div>{{/orange}}
+                    {{#purple}}<div>+</div><div class="sheet-color-roll sheet-purple-roll">{{purple}}{{#purple_level}}<span class="sheet-tooltip">{{#purple_name}}{{purple_name}}<br/>{{/purple_name}}Level: {{purple_level}}</span>{{/purple_level}}</div>{{/purple}}
+                    {{#black}}<div>+</div><div class="sheet-color-roll sheet-black-roll">{{black}}{{#black_level}}<span class="sheet-tooltip">{{#black_name}}{{black_name}}<br/>{{/black_name}}Level: {{black_level}}</span>{{/black_level}}</div>{{/black}}
+                    {{#grey}}<div>+</div><div class="sheet-color-roll sheet-grey-roll">{{grey}}{{#grey_level}}<span class="sheet-tooltip">{{#grey_name}}{{grey_name}}<br/>{{/grey_name}}Level: {{grey_level}}</span>{{/grey_level}}</div>{{/grey}}
+                    {{#white}}<div>+</div><div class="sheet-color-roll sheet-white-roll">{{white}}{{#white_level}}<span class="sheet-tooltip">{{#white_name}}{{white_name}}<br/>{{/white_name}}Level: {{white_level}}</span>{{/white_level}}</div>{{/white}}
+                    {{#H}}<div>+</div><div class="sheet-color-roll sheet-white-roll">{{H}}</div>{{/H}}
+                    {{#HH}}<div>+</div><div class="sheet-color-roll sheet-white-roll">{{HH}}</div>{{/HH}}
+                    {{#HHH}}<div>+</div><div class="sheet-color-roll sheet-white-roll">{{HHH}}</div>{{/HHH}}
+                    {{#HHHH}}<div>+</div><div class="sheet-color-roll sheet-white-roll">{{HHHH}}</div>{{/HHHH}}
+                    {{#HHHHH}}<div>+</div><div class="sheet-color-roll sheet-white-roll">{{HHHHH}}</div>{{/HHHHH}}
+                    {{#HHHHHH}}<div>+</div><div class="sheet-color-roll sheet-white-roll">{{HHHHHH}}</div>{{/HHHHHH}}
+                </div>
+                {{#swing}}<div class="sheet-color-roll sheet-white-roll">
+                    {{swing}}
+                </div>{{/swing}}
+                {{#d6s}}<div class="sheet-d6">
+                    {{d6s}}
+                </div>{{/d6s}}
+                {{#bonus}}<div>
+                    {{bonus}}
+                </div>{{/bonus}}
+            </div>
+        </div>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-custom">
+    <div class="sheet-container sheet-color-{{color}}">
+        <div class="sheet-header">
+            {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+            {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+        </div>
+        <div class="sheet-content">
+            {{#allprops() title subtitle desc color}}
+            <div class="sheet-key">{{key}}</div>
+            <div class="sheet-value">{{value}}</div>
+            {{/allprops() title subtitle desc color}}
+            {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+        </div>
+    </div>
+</rolltemplate>

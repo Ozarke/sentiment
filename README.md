@@ -37,3 +37,4 @@ V1.00 Intial Version.<br/>
 V1.01 Added Roll to Do and Roll to Dye template.<br/>
 V1.02 Added white and grey dye, fixed colors for character sheets swing, added version attribute and new initializtion function.<br/>
 V1.03 Added Gifts Section, Improved Config Area, Increased width of character sheet.
+V1.04 Adding tooltip for attribute level and eventaully name.
