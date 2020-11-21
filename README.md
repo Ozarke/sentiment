@@ -23,7 +23,9 @@ This scripts allows the Token Image change automaticly based on selected swing.<
 Again, create a new script using the link and copy all the code over.<br/>
 Once, installed the Image Set property must be checked in the character sheet. In addtion, a rollable table must be used as the token.<br/>
  <img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/config_imageset.png" width="50%"/>
- <img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/rolltable_example.png"/>
+ <img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/rolltable_example.png"/> <br/>
+As of version 1.05 as long as the roll table is ordered in ["red","blue","yellow","green","purple","orange","black","grey","white"] with any mutlple of missing color in between the roll table will adjust based of the enabled attributes. If you have red, yellow and green enabled. Order the rolltable default, red, blue, green.
+If a an image is unavailable for a enabled color duplicating the default image to replace the missing images.
 
 ### Character Sheet Installation
 Navigate to the Game Details Page of the target game. Once there, Select Game Settings from Settings dropdown.<br/>
