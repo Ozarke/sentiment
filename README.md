@@ -31,7 +31,7 @@ If a an image is unavailable for a enabled color duplicating the default image t
 Navigate to the Game Details Page of the target game. Once there, Select Game Settings from Settings dropdown.<br/>
 Scroll down to Character Sheet Template.<br/>
 From the drop down select Custom.<br/>
-In this area copy sheet.html to the HTML Layout section and sheet.css to the CSS Sytling section.
+In this area copy windrose.html to the HTML Layout section and windrose.css to the CSS Sytling section.
 
 # Version
 V1.00 Intial Version.<br/>
