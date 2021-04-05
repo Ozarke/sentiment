@@ -29,11 +29,15 @@ If a an image is unavailable for a enabled color duplicating the default image t
 
 ### Character Sheet Installation
 Navigate to the Game Details Page of the target game. Once there, Select Game Settings from Settings dropdown.<br/>
-<img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/html_navigation.png" width="60%"/><br/>
+<p align="center">
+  <img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/html_navigation.png" width="60%"/><br/>
+</p>
 Scroll down to Character Sheet Template.<br/>
 From the drop down select Custom.<br/>
 In this area copy windrose.html to the HTML Layout section and windrose.css to the CSS Sytling section.<br/>
-<img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/html_paste.png" width="80%"/><br/>
+<p align="center">
+  <img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/html_paste.png" width="80%"/>
+</p>
 
 # Version
 V1.00 Intial Version.<br/>
@@ -41,4 +45,5 @@ V1.01 Added Roll to Do and Roll to Dye template.<br/>
 V1.02 Added white and grey dye, fixed colors for character sheets swing, added version attribute and new initializtion function.<br/>
 V1.03 Added Gifts Section, Improved Config Area, Increased width of character sheet.<br/>
 V1.04 Added tooltip for attribute level and attribute name. Updated colors for green, purple, and orange. <br/>
-V1.05 improved set image for attributes.
+V1.05 improved set image for attributes.<br/>
+V1.06 fixed issues with legacy code. Added bond section, Added simple rolls, Fixed minor issues with JS.
