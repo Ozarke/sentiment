@@ -11,7 +11,7 @@ Navigate to the Game Details Page of the target game. Once there, Select API Scr
 </p>
 In this area two new sctips will be added by pressing the New Script link.
 <p align="center">
-  <img align="https://github.com/Ozarke/windrose/blob/main/assets/github/js_paste.png?raw=true" width="60%"/>
+  <img align="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/js_paste.png" width="60%"/>
 </p>
 
 The first script that should be added is the windrose_api.js. This is the core of the scripting done for windrose system.<br/>
@@ -29,11 +29,11 @@ If a an image is unavailable for a enabled color duplicating the default image t
 
 ### Character Sheet Installation
 Navigate to the Game Details Page of the target game. Once there, Select Game Settings from Settings dropdown.<br/>
-<img align="https://github.com/Ozarke/windrose/blob/main/assets/github/html_navigation.png?raw=true" width="60%"/>
+<img align="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/html_navigation.png" width="60%"/>
 Scroll down to Character Sheet Template.<br/>
 From the drop down select Custom.<br/>
 In this area copy windrose.html to the HTML Layout section and windrose.css to the CSS Sytling section.
-!<img align="https://github.com/Ozarke/windrose/blob/main/assets/github/html_paste.png?raw=true" width="60%"/>
+<img align="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/html_paste.png" width="60%"/>
 
 # Version
 V1.00 Intial Version.<br/>
