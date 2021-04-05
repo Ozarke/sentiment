@@ -34,7 +34,7 @@ Navigate to the Game Details Page of the target game. Once there, Select Game Se
 </p>
 Scroll down to Character Sheet Template.<br/>
 From the drop down select Custom.<br/>
-In this area copy windrose.html to the HTML Layout section and windrose.css to the CSS Sytling section.<br/>
+In this area copy windrose.html to the HTML Layout section and windrose.css to the CSS Sytling section. As of version 1.06 Legacy Checkbox should remain unchecked.<br/>
 <p align="center">
   <img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/html_paste.png" width="80%"/>
 </p>
