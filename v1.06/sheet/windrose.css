@@ -1059,6 +1059,7 @@ input.toggle:not([value="true"]) ~ button.toggle > span.checked {
     margin-top: 0.5vw;
     height: 300px;
     display: none;
+    color: white;
 }
 
 .charsheet input.toggle {
