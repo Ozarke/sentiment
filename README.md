@@ -1,6 +1,6 @@
-# Windrose
-Windrose is a beta TTRPG systems that involves rolling colored d6s.<br/>
-The effort for this project is to develop windrose character sheets and API scripts to be used in Roll20.<br/>
+# Windrose v1.6
+Windrose is a TTRPG system that involves rolling colored d6s.<br/>
+The effort of this project is to develop windrose character sheets and API scripts to be used in [Roll20](https://roll20.net/welcome).<br/>
 Versions will be seperated by compatibilty. V1 to V2 will require re-implment tokens and setting up character sheets.
 # Installation
 This api requires Pro level subscribtion on roll20. The code provided are both an API scripts and a character sheet. These must be used together.
@@ -9,16 +9,16 @@ Navigate to the Game Details Page of the target game. Once there, Select API Scr
 <p align="center">
   <img align="middle" src="https://roll20.zendesk.com/hc/article_attachments/360067045633/API_Test___Roll20__Online_virtual_tabletop__1_.png" width= "60%"/>
 </p>
-In this area two new sctips will be added by pressing the New Script link.
+In this area two new scripts will be added by pressing the New Script link.
 <p align="center">
   <img align="middle" src="https://roll20.zendesk.com/hc/article_attachments/360067047013/Roll20__Online_virtual_tabletop_for_pen_and_paper_RPGs_and_board_games.png" width="60%"/>
 </p>
 
-The first script that should be added is the windrose_api.js. This is the core of the scripting done for windrose system.<br/>
+The first script that should be added is the WindroseCore.js. This is the core API for the scripting done for windrose system.<br/>
 The name the script added does not matter and can be named anything.<br/>
-Copy the entire text of the windrose_api.js into this new script.<br/>
+Copy the entire text of the WindroseCore.js into this new script.<br/>
 <br/>
-The next scrip is WindroseChangeTokenImage.js an optional script that is an edited version of ChangeTokenImage.js.<br/>
+The next script is WindroseChangeTokenImage.js an optional script that is an edited version of ChangeTokenImage.js.<br/>
 This scripts allows the Token Image change automaticly based on selected swing.<br/>
 Again, create a new script using the link and copy all the code over.<br/>
 Once, installed the Image Set property must be checked in the character sheet. In addtion, a rollable table must be used as the token.<br/>
@@ -40,3 +40,4 @@ V1.02 Added white and grey dye, fixed colors for character sheets swing, added v
 V1.03 Added Gifts Section, Improved Config Area, Increased width of character sheet.<br/>
 V1.04 Added tooltip for attribute level and attribute name. Updated colors for green, purple, and orange. <br/>
 V1.05 improved set image for attributes.
+V1.06 devlopment
