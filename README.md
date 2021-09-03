@@ -1,7 +1,7 @@
-# Windrose v1.6
+# Windrose V1.6
 Windrose is a TTRPG system that involves rolling colored d6s.<br/>
 The effort of this project is to develop windrose character sheets and API scripts to be used in [Roll20](https://roll20.net/welcome).<br/>
-Versions will be seperated by compatibilty. V1 to V2 will require re-implment tokens and setting up character sheets.
+V1 to V2 will require re-implment tokens and setting up character sheets.
 # Installation
 This api requires Pro level subscribtion on roll20. The code provided are both an API scripts and a character sheet. These must be used together.
 ### API Installation
@@ -39,5 +39,5 @@ V1.01 Added Roll to Do and Roll to Dye template.<br/>
 V1.02 Added white and grey dye, fixed colors for character sheets swing, added version attribute and new initializtion function.<br/>
 V1.03 Added Gifts Section, Improved Config Area, Increased width of character sheet.<br/>
 V1.04 Added tooltip for attribute level and attribute name. Updated colors for green, purple, and orange. <br/>
-V1.05 improved set image for attributes.
+V1.05 improved set image for attributes. <br/>
 V1.06 devlopment
