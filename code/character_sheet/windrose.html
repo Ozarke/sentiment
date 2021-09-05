@@ -54,18 +54,18 @@
                 </div>
             </div>
             <div>
-                <input type='hidden' class='color-enabled' name='attr_yellow_enabled' value='false'>
-                <div class="color-enabled-receiver attr-icon yellow">
-                    <button type="roll" name="wound" value="!wind set-swing @{character_id} yellow @{yellow_value} true" class="attribute-button">
-                        <span class="big-black" name="attr_yellow_value" type="number" value="1" minvalue="1"></span>
-                    </button> 
-                </div>
-            </div>
-            <div>
                 <input type='hidden' class='color-enabled' name='attr_blue_enabled' value='false'>
                 <div class="color-enabled-receiver attr-icon blue">
                     <button type="roll" name="wound" value="!wind set-swing @{character_id} blue @{blue_value} true" class="attribute-button">
                         <span class="big-black" name="attr_blue_value" type="number" value="1" minvalue="1"></span>
+                    </button> 
+                </div>
+            </div>
+            <div>
+                <input type='hidden' class='color-enabled' name='attr_yellow_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon yellow">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} yellow @{yellow_value} true" class="attribute-button">
+                        <span class="big-black" name="attr_yellow_value" type="number" value="1" minvalue="1"></span>
                     </button> 
                 </div>
             </div>
@@ -78,14 +78,6 @@
                 </div>
             </div>
             <div>
-                <input type='hidden' class='color-enabled' name='attr_orange_enabled' value='false'>
-                <div class="color-enabled-receiver attr-icon orange">
-                    <button type="roll" name="wound" value="!wind set-swing @{character_id} orange @{orange_value} true" class="attribute-button">
-                        <span class="big-black" name="attr_orange_value" type="number" value="1" minvalue="1"></span>
-                    </button>
-                </div>
-            </div>
-            <div>
                 <input type='hidden' class='color-enabled' name='attr_purple_enabled' value='false'>
                 <div class="color-enabled-receiver attr-icon purple">
                     <button type="roll" name="wound" value="!wind set-swing @{character_id} purple @{purple_value} true" class="attribute-button">
@@ -94,13 +86,21 @@
                 </div>
             </div>
             <div>
-                <input type='hidden' class='color-enabled' name='attr_white_enabled' value='false'>
-                <div class="color-enabled-receiver attr-icon white">
-                    <button type="roll" name="wound" value="!wind set-swing @{character_id} white @{white_value} true" class="attribute-button">
-                        <span class="big-black" name="attr_white_value" type="number" value="1" minvalue="1"></span>
+                <input type='hidden' class='color-enabled' name='attr_orange_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon orange">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} orange @{orange_value} true" class="attribute-button">
+                        <span class="big-black" name="attr_orange_value" type="number" value="1" minvalue="1"></span>
                     </button>
                 </div>
             </div>
+            <div>
+                <input type='hidden' class='color-enabled' name='attr_black_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon-black black">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} black @{black_value} true" class="attribute-button">
+                        <span class="big-white" name="attr_black_value" type="number" value="1" minvalue="1"></span>
+                    </button>
+                </div>
+            </div>          
             <div>
                 <input type='hidden' class='color-enabled' name='attr_grey_enabled' value='false'>
                 <div class="color-enabled-receiver attr-icon grey">
@@ -110,10 +110,10 @@
                 </div>
             </div>
             <div>
-                <input type='hidden' class='color-enabled' name='attr_black_enabled' value='false'>
-                <div class="color-enabled-receiver attr-icon-black black">
-                    <button type="roll" name="wound" value="!wind set-swing @{character_id} black @{black_value} true" class="attribute-button">
-                        <span class="big-white" name="attr_black_value" type="number" value="1" minvalue="1"></span>
+                <input type='hidden' class='color-enabled' name='attr_white_enabled' value='false'>
+                <div class="color-enabled-receiver attr-icon white">
+                    <button type="roll" name="wound" value="!wind set-swing @{character_id} white @{white_value} true" class="attribute-button">
+                        <span class="big-black" name="attr_white_value" type="number" value="1" minvalue="1"></span>
                     </button>
                 </div>
             </div>
@@ -605,13 +605,13 @@
                     {{#d20}}<div class="d20">
                         <div class="d20-first">{{d20}}</div>
                         <div class="d20-second">0</div>                        
-                    </div>{{/d20}}                    
+                    </div>{{/d20}}    
                     {{#red}}<div>+</div><div class="color-roll red-roll">{{red}}{{#red_level}}<span class="tooltip">{{#red_name}}{{red_name}}<br/>{{/red_name}}Level: {{red_level}}</span>{{/red_level}}</div>{{/red}}
-                    {{#yellow}}<div>+</div><div class="color-roll yellow-roll">{{yellow}}{{#yellow_level}}<span class="tooltip">{{#yellow_name}}{{yellow_name}}<br/>{{/yellow_name}}Level: {{yellow_level}}</span>{{/yellow_level}}</div>{{/yellow}}
                     {{#blue}}<div>+</div><div class="color-roll blue-roll">{{blue}}{{#blue_level}}<span class="tooltip">{{#blue_name}}{{blue_name}}<br/>{{/blue_name}}Level: {{blue_level}}</span>{{/blue_level}}</div>{{/blue}}
+                    {{#yellow}}<div>+</div><div class="color-roll yellow-roll">{{yellow}}{{#yellow_level}}<span class="tooltip">{{#yellow_name}}{{yellow_name}}<br/>{{/yellow_name}}Level: {{yellow_level}}</span>{{/yellow_level}}</div>{{/yellow}}
                     {{#green}}<div>+</div><div class="color-roll green-roll">{{green}}{{#green_level}}<span class="tooltip">{{#green_name}}{{green_name}}<br/>{{/green_name}}Level: {{green_level}}</span>{{/green_level}}</div>{{/green}}
-                    {{#orange}}<div>+</div><div class="color-roll orange-roll">{{orange}}{{#orange_level}}<span class="tooltip">{{#orange_name}}{{orange_name}}<br/>{{/orange_name}}Level: {{orange_level}}</span>{{/orange_level}}</div>{{/orange}}
                     {{#purple}}<div>+</div><div class="color-roll purple-roll">{{purple}}{{#purple_level}}<span class="tooltip">{{#purple_name}}{{purple_name}}<br/>{{/purple_name}}Level: {{purple_level}}</span>{{/purple_level}}</div>{{/purple}}
+                    {{#orange}}<div>+</div><div class="color-roll orange-roll">{{orange}}{{#orange_level}}<span class="tooltip">{{#orange_name}}{{orange_name}}<br/>{{/orange_name}}Level: {{orange_level}}</span>{{/orange_level}}</div>{{/orange}}
                     {{#black}}<div>+</div><div class="color-roll black-roll">{{black}}{{#black_level}}<span class="tooltip">{{#black_name}}{{black_name}}<br/>{{/black_name}}Level: {{black_level}}</span>{{/black_level}}</div>{{/black}}
                     {{#grey}}<div>+</div><div class="color-roll grey-roll">{{grey}}{{#grey_level}}<span class="tooltip">{{#grey_name}}{{grey_name}}<br/>{{/grey_name}}Level: {{grey_level}}</span>{{/grey_level}}</div>{{/grey}}
                     {{#white}}<div>+</div><div class="color-roll white-roll">{{white}}{{#white_level}}<span class="tooltip">{{#white_name}}{{white_name}}<br/>{{/white_name}}Level: {{white_level}}</span>{{/white_level}}</div>{{/white}}

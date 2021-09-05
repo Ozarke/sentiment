@@ -81,7 +81,7 @@ function capitalize(string)
 }
 
 function roll_to_dye(obj,d6,bonus) {
-    var colors = ["red","yellow","blue","green","orange","purple","black","white","grey"];
+    var colors = ["red","blue","yellow","green","purple","orange","black","grey","white"];
     var swing_color = getAttrByName(obj.id,"swing_color","Current");
     var background_color = '';    
     var header_url = '';
