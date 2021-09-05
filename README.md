@@ -40,5 +40,5 @@ V1.02 added white and grey dye, fixed colors for character sheets swing, added v
 V1.03 added Gifts Section, Improved Config Area, Increased width of character sheet.<br/>
 V1.04 added tooltip for attribute level and attribute name. Updated colors for green, purple, and orange. <br/>
 V1.05 improved set image for attributes. <br/>
-V1.06 small changes <br/>
-V1.07 added ignite, roll to recover, attribute image checkbox, health max and min, swingless rolls to do have 1d6.
+V1.06 fixed issues with legacy code. Added bond section, Added simple rolls, Fixed minor issues with JS. <br/>
+V1.07 added ignite, roll to recover, attribute image checkbox, health max and min, swingless rolls to do have 1d6, and made character sheet dye match sequence of chat.
