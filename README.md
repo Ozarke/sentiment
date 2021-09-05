@@ -1,4 +1,4 @@
-# Windrose V1.7
+# Windrose API V1.7
 Windrose is a TTRPG system that involves rolling colored d6s.<br/>
 The effort of this project is to develop windrose character sheets and API scripts to be used in [Roll20](https://roll20.net/welcome).<br/>
 V1 to V2 will require re-implment tokens and setting up character sheets.
