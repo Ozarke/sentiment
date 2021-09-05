@@ -3,7 +3,7 @@ Windrose is a TTRPG system that involves rolling colored d6s.<br/>
 The effort of this project is to develop windrose character sheets and API scripts to be used in [Roll20](https://roll20.net/welcome).<br/>
 V1 to V2 will require re-implment tokens and setting up character sheets.
 # Installation
-This api requires Pro level subscribtion on roll20. The code provided are both an API scripts and a character sheet. These must be used together.
+This api requires Pro level subscribtion on roll20. The code provided are both the API scripts and a character sheet. These must be used together.
 ### API Installation
 Navigate to the Game Details Page of the target game. Once there, Select API Scripts from Settings dropdown.
 <p align="center">
