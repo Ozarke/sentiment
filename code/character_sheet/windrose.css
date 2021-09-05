@@ -1,33 +1,35 @@
 @import url('https://fonts.googleapis.com/css?family=Tenali+Ramakrishna&display=swap');
 
 /*Configure the tab buttons*/
-.sheet-buttons-1,
-.sheet-buttons-2{
+.buttons-1,
+.buttons-2{
     display: none;
 }
-.sheet-attribute-values,
-.sheet-attribute-settings,
-.sheet-gifts{
+.attribute-values,
+.attribute-settings,
+.bonds,
+.gifts{
     display: none;
 }
 
-.sheet-tabstoggle[value="gifts"] ~ .sheet-buttons{
+.tabstoggle[value="gifts"] ~ .buttons{
     display: none;
 }
 
 /* show the selected tab */
-.sheet-tabstoggle[value="character"] ~ div.sheet-buttons-1,
-.sheet-tabstoggle[value="configuration"] ~ div.sheet-buttons-2{
+.tabstoggle[value="character"] ~ div.buttons-1,
+.tabstoggle[value="configuration"] ~ div.buttons-2{
     display: block;
 }
-.sheet-tabstoggle[value="character"] ~ div.sheet-attribute-values,
-.sheet-tabstoggle[value="configuration"] ~ div.sheet-attribute-settings,
-.sheet-tabstoggle[value="gifts"] ~ div.sheet-gifts{
+.tabstoggle[value="character"] ~ div.attribute-values,
+.tabstoggle[value="bonds"] ~ div.bonds,
+.tabstoggle[value="configuration"] ~ div.attribute-settings,
+.tabstoggle[value="gifts"] ~ div.gifts{
     display: grid;
 }
 /* --------- Text ------------- */
 
-span.sheet-bold{
+span.bold{
   font-weight: 800;
   font-size: medium;
 }
@@ -43,6 +45,7 @@ input[type="text"] {
   background-color: transparent;
   border-style: none none solid none;
   border-color: black;
+  text-align: center;
 }
 
 input[type="number"] {
@@ -50,6 +53,7 @@ input[type="number"] {
   border: none;
   color: white;
   font-size: 15px;
+  text-align: center;
 }
 
 textarea {
@@ -59,7 +63,7 @@ textarea {
   margin-right: 15px;
 }
 
-input[type="checkbox"].sheet-checkbox {
+input[type="checkbox"].checkbox {
   border-style: solid black;
   border-radius: 0px;
 }
@@ -72,43 +76,23 @@ input[type="number"]:focus{
 
 /* -----Hides up/down buttons on numberfields that don't need them ---*/
 
-input[type=number].sheet-ref::-webkit-inner-spin-button,
-input[type=number].sheet-ref::-webkit-outer-spin-button,
-input[type=number].sheet-txtfield::-webkit-inner-spin-button,
-input[type=number].sheet-txtfield::-webkit-outer-spin-button {
+input[type=number].ref::-webkit-inner-spin-button,
+input[type=number].ref::-webkit-outer-spin-button,
+input[type=number].txtfield::-webkit-inner-spin-button,
+input[type=number].txtfield::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type=number].sheet-ref,
-input[type=number].sheet-txtfield {
+input[type=number].ref,
+input[type=number].txtfield {
   -moz-appearance: textfield;
 }
 
 /* ------- Buttons ---------- */
 
-button {
-    height: 50px;
-    width: 215px;
-    border-radius: 0px;
-    -moz-appearance: none;
-    background-color: rgba(255,255,255, 0.099) !important;
-    border-color: transparent;
-    margin: 1vh;
-    box-shadow: 0px 7px 5px #5b3a21;
-    background-image: none;
-    color: inherit;
-    padding: 7px !important;
-    font-size: 1.3em;
-    text-shadow: none;
-}
-button:hover {
-    color:inherit;
-    background-color: rgba(255,255,255, 0.2) !important;
-}
-
-.sheet-tab button{
+.tab button{
     height: 20%;
-    width: 20%;
+    width: 15%;
     border-radius: 0px;
     -moz-appearance: none;
     background-color: rgba(255,255,255, 0.099) !important;
@@ -118,54 +102,54 @@ button:hover {
     color: inherit;
     text-shadow: none;
 }
-.sheet-tab button:hover{
+.tab button:hover{
     color:inherit;
     background-color: rgba(255,255,255, 0.2) !important;
 }
 
 
-.sheet-inset {
+.inset {
     box-shadow: 0px 10px 20px #5b3a21 inset, 0px -7px 7px #bfa187 inset;
     background-color: rgba(153,114,76, 0.2);
     border-radius:20px;
 }
 
-.sheet-doubleinset {
+.doubleinset {
     box-shadow: 0px 7px 4px #5b3a21 inset, 0px -3px 3px #bfa187 inset;
     background-color: rgba(112,81,51, 0.2);
     border-radius:20px;
 }
 
-.sheet-red {
+.red {
     background-color: #F67381;
 }
-.sheet-blue {
+.blue {
     background-color: #72A7D3;
 }
-.sheet-yellow {
+.yellow {
     background-color: #FECC51;
 }
-.sheet-green {
-    background-color: green;
+.green {
+    background-color: #96D685;
 }
-.sheet-orange {
-    background-color: orange;
+.orange {
+    background-color: #FEB072;
 }
-.sheet-purple {
-    background-color: purple;
+.purple {
+    background-color: #D1B8ED;
 }
-.sheet-black {
+.black {
     background-color: black;
 }
-.sheet-grey {
+.grey {
     background-color: grey;
 }
-.sheet-white {
+.white {
     background-color: white;
 }
 
 
-.sheet-attr-icon {
+.attr-icon {
     background-image: url('https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern-dark.png');
     background-size: 100% 100%;
     height: 100px;
@@ -179,7 +163,7 @@ button:hover {
     margin-right: 10px;
 }
 
-.sheet-attr-icon-black {
+.attr-icon-black {
     background-image: url('https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern.png');
     background-size: 100% 100%;
     height: 100px;
@@ -193,7 +177,7 @@ button:hover {
     margin-right: 10px;
 }
 
-.sheet-big {
+.big {
     font-size: 65px;
     text-align:center;
     vertical-align: middle;
@@ -202,7 +186,7 @@ button:hover {
     border-radius: 0px;
     padding: 0px;  
 }
-.sheet-normal {
+.normal {
     font-size: 20px;
     text-align:center;
     vertical-align: middle;
@@ -212,7 +196,7 @@ button:hover {
     padding: 0px;
     color: black;    
 }
-.sheet-small {
+.small {
     font-size: 15px;
     text-align:center;
     vertical-align: middle;
@@ -223,7 +207,7 @@ button:hover {
     color: black;    
 }
 
-.sheet-big-black {
+.big-black {
     font-size: 65px;
     text-align:center;
     vertical-align: middle;
@@ -234,7 +218,7 @@ button:hover {
     color: black;
 }
 
-.sheet-big-white {
+.big-white {
     font-size: 65px;
     text-align:center;
     vertical-align: middle;
@@ -245,50 +229,50 @@ button:hover {
     color: white;    
 }
 
-.sheet-color-swing[value=''] ~ .sheet-color-swing-receiver{
+.color-swing[value=''] ~ .color-swing-receiver{
     background-color:transparent;
 }
-.sheet-color-swing[value=red] ~ .sheet-color-swing-receiver{
+.color-swing[value=red] ~ .color-swing-receiver{
     background-color:#F67381;
     color:black;
 }
-.sheet-color-swing[value=blue] ~ .sheet-color-swing-receiver{
+.color-swing[value=blue] ~ .color-swing-receiver{
     background-color:#72A7D3;
     color:black;
 }
-.sheet-color-swing[value=yellow] ~ .sheet-color-swing-receiver{
+.color-swing[value=yellow] ~ .color-swing-receiver{
     background-color:#FECC51;
     color:black;
 }
-.sheet-color-swing[value=green] ~ .sheet-color-swing-receiver{
-    background-color:green;
+.color-swing[value=green] ~ .color-swing-receiver{
+    background-color:#96D685;
     color:black;
 }
-.sheet-color-swing[value=orange] ~ .sheet-color-swing-receiver{
-    background-color:orange;
+.color-swing[value=orange] ~ .color-swing-receiver{
+    background-color:#FEB072;
     color:black;
 }
-.sheet-color-swing[value=purple] ~ .sheet-color-swing-receiver{
-    background-color:purple;
+.color-swing[value=purple] ~ .color-swing-receiver{
+    background-color:#D1B8ED;
     color:black;
 }
-.sheet-color-swing[value=black] ~ .sheet-color-swing-receiver{
+.color-swing[value=black] ~ .color-swing-receiver{
     background-color:black;
     color:white;
     background-image: url('https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern.png');
 }
-.sheet-color-swing[value=grey] ~ .sheet-color-swing-receiver{
+.color-swing[value=grey] ~ .color-swing-receiver{
     background-color:grey;
     color:black;
 }
-.sheet-color-swing[value=white] ~ .sheet-color-swing-receiver{
+.color-swing[value=white] ~ .color-swing-receiver{
     background-color:white;
     color:black;
 }
-.sheet-color-enabled[value='true'] ~ .sheet-color-enabled-receiver{
+.color-enabled[value='true'] ~ .color-enabled-receiver{
     display:flex;
 }
-.sheet-color-enabled[value='false'] ~ .sheet-color-enabled-receiver{
+.color-enabled[value='false'] ~ .color-enabled-receiver{
     display:none;
 }
 
@@ -298,26 +282,26 @@ button:hover {
 
 
 /* --------- General Section Styling ------------- */
-.sheet-flex-center {
+.flex-center {
   display: flex;
   align-items: center;
 }
 
-.sheet-flex-middle {
+.flex-middle {
   display: flex;
   justify-content: center;
 }
 
-.sheet-flex-down {
+.flex-down {
   flex-flow: column nowrap;
 }
 
-.sheet-grid-column {
+.grid-column {
     display:grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
 }
 
-.sheet-left{
+.left{
   display: inline-flex;
   text-align: left;  
   vertical-align:middle;
@@ -325,7 +309,7 @@ button:hover {
   align-items: center;
 }
 
-.sheet-section {
+.section {
     padding: 5px;
     min-height: 90%;
 }
@@ -333,10 +317,7 @@ button:hover {
 
 div.sheet-main {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    background: #f7f7f7;
-    background-image: url('https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%2520Everlasting/assets/bg.jpg');
-    background-size: contain;
-    color: #602749;    
+    color: #efdabf;    
 
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -347,6 +328,9 @@ div.sheet-main {
     height: auto;
     outline: #ffffff solid 5px;
     padding: 30px;
+    background: #f7f7f7;
+    background-image: url(https://github.com/missing-q/charsheets/blob/master/Windrose%20Everlasting/assets/bg.jpg?raw=true);
+    background-size: contain;
 }
 
 div.sheet-header{ 
@@ -356,13 +340,13 @@ div.sheet-header{
     color: #efdabf;
     text-align: center;
 }
-div.sheet-buttons-1 { 
+div.buttons-1 { 
     grid-area: 2 / 1 / 3 / 2;
 }
-div.sheet-buttons-2 { 
+div.buttons-2 { 
     grid-area: 2 / 1 / 3 / 2;
 }
-div.sheet-attribute-values { 
+div.attribute-values { 
     grid-area: 2 / 2 / 3 / 4;
     height: 325px;
     width: 325px;
@@ -370,11 +354,10 @@ div.sheet-attribute-values {
     grid-template-rows: auto auto;
     padding: 10px 10px 10px 10px;    
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto;    
 }
 
-div.sheet-gifts { 
+div.gifts { 
     grid-area: 2 / 1 / 3 / 4;
     height: auto;
     min-height: 325px;
@@ -382,16 +365,22 @@ div.sheet-gifts {
     padding: 10px 10px 10px 10px;    
 }
 
+div.bonds { 
+    grid-area: 2 / 1 / 3 / 4;
+    height: auto;
+    min-height: 325px;
+    width: auto;
+    padding: 10px 10px 10px 10px;   
+}
 
-
-button[type="roll"].sheet-attribute-button {
+button[type="roll"].attribute-button {
     background:transparent;
     border:none;
     outline:none;
     display:block;
     height:90px;
     width:90px;
-    font-size:0;
+    font-size: 0 !important;
     border-radius: 0px;
     -moz-appearance: none;
     background-color: transparent !important;
@@ -402,14 +391,89 @@ button[type="roll"].sheet-attribute-button {
     text-shadow: none;
 }
 
-div.sheet-attribute-settings { 
+div.repcontrol_edit button{
+    background-color: rgba(255,255,255, 0.099) !important;
+    border-color: transparent;
+    font-size: 1.3em;
+    text-shadow: none;
+}
+
+div.buttons-1 button{
+    height: 35px;
+    width: 255px;
+    border-radius: 0px;
+    -moz-appearance: none;
+    background-color: rgba(255,255,255, 0.099) !important;
+    border-color: transparent;
+    margin: 1vh;
+    box-shadow: 0px 7px 5px #5b3a21;
+    background-image: none;
+    color: inherit;
+    margin: 7px !important;
+    padding: 0px !important;
+    font-size: 1.3em;
+    text-shadow: none;
+}
+div.buttons-2 button{
+    height: 50px;
+    width: 255px;
+    border-radius: 0px;
+    -moz-appearance: none;
+    background-color: rgba(255,255,255, 0.099) !important;
+    border-color: transparent;
+    margin: 1vh;
+    box-shadow: 0px 7px 5px #5b3a21;
+    background-image: none;
+    color: inherit;
+    margin: 7px !important;
+    padding: 0px !important;
+    font-size: 1.3em;
+    text-shadow: none;
+}
+
+
+div.small-button {
+  display: grid;
+  text-align:center;
+  font-size: 1.3em;
+  color: #333;
+}
+div.small-button button{
+    height: 30px;
+    width: 119px;
+    text-transform: center;
+    justify-content: center;
+    font-size: 0.8em !important;
+    margin-top: 0px !important;
+    margin-bottom: 4px !important;
+    padding: 0px !important;
+    color: #efdabf;
+}
+div.attribute-settings { 
     grid-area: 2 / 2 / 3 / 4; 
-    height: 325px;
+    height: auto;
     width: auto;
     grid-template-columns: 20% 15% auto;    
     padding: 10px 10px 10px 10px;    
 }
-div.sheet-footer { 
+
+div.attribute-settings > div {
+  padding: 3px;
+}
+
+div.attribute-settings input[type="text"] {
+  background-color: transparent;
+  border-style: none none none none;
+  border-color: transparent;
+  box-shadow: 0px 3px 3px #5b3a21 inset, 0px -3px 3px #bfa187 inset;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;  
+  color: #333;
+}
+
+div.footer { 
     grid-area: 3 / 1 / 4 / 3;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -417,7 +481,7 @@ div.sheet-footer {
     margin: auto;
     padding: 10px 10px 10px 10px; 
 }
-div.sheet-swing{
+div.swing{
     grid-area: 3 / 3 / 4 / 4;
     display: grid;  
     font-size: 30px;
@@ -483,15 +547,15 @@ div.sheet-swing{
     --header-text-color: #000;
 }
 .sheet-rolltemplate-custom .sheet-container.sheet-color-green{
-    --header-bg-color:green;
+    --header-bg-color:#96D685;
     --header-text-color: #FFF;
 }
 .sheet-rolltemplate-custom .sheet-container.sheet-color-orange{
-    --header-bg-color:orange;
+    --header-bg-color:#FEB072;
     --header-text-color: #000;
 }
 .sheet-rolltemplate-custom .sheet-container.sheet-color-purple{
-    --header-bg-color:purple;
+    --header-bg-color:#D1B8ED;
     --header-text-color: #FFF;
 }
 .sheet-rolltemplate-custom .sheet-container.sheet-color-black{
@@ -641,15 +705,15 @@ div.sheet-swing{
     --header-text-color: #000;
 }
 .sheet-rolltemplate-roll .sheet-container.sheet-color-green{
-    --header-bg-color:green;
+    --header-bg-color:#96D685;
     --header-text-color: #FFF;
 }
 .sheet-rolltemplate-roll .sheet-container.sheet-color-orange{
-    --header-bg-color:orange;
+    --header-bg-color:#FEB072;
     --header-text-color: #000;
 }
 .sheet-rolltemplate-roll .sheet-container.sheet-color-purple{
-    --header-bg-color:purple;
+    --header-bg-color:#D1B8ED;
     --header-text-color: #FFF;
 }
 .sheet-rolltemplate-roll .sheet-container.sheet-color-black{
@@ -731,16 +795,15 @@ div.sheet-swing{
 }
 .sheet-rolltemplate-roll .sheet-green-roll a {
   color: black;
-  background-color: green;
-  background-image: url(https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern.png) !important;
+  background-color: #96D685;
 }
 .sheet-rolltemplate-roll .sheet-orange-roll a {
   color: black;
-  background-color: orange;
+  background-color: #FEB072;
 }
 .sheet-rolltemplate-roll .sheet-purple-roll a {
   color: black;
-  background-color: purple;
+  background-color: #D1B8ED;
   background-image: url(https://raw.githubusercontent.com/missing-q/charsheets/master/Windrose%20Everlasting/assets/Get!%20Icons/windrose_flower_pattern.png) !important;
 }
 .sheet-rolltemplate-roll .sheet-black-roll a {
@@ -767,9 +830,44 @@ div.sheet-swing{
     background-repeat: no-repeat;
 }
 
+.sheet-rolltemplate-roll .sheet-color-roll .sheet-tooltip{
+  visibility: hidden;
+  width: auto;
+  min-width: 65px;
+  max-width: 300px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: -54px;
+  margin-bottom: 5px;
+  margin-left: 0;
+  white-space: nowrap;
+}
+
+.sheet-rolltemplate-roll .sheet-color-roll .sheet-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 65px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.sheet-rolltemplate-roll .sheet-color-roll:hover .sheet-tooltip{
+ visibility: visible;   
+}
+
 .sheet-rolltemplate-roll .sheet-color-roll {
   width: 100%;
   text-align: center;
+  position: relative;
 }
 
 /* Allprops part */
@@ -889,13 +987,13 @@ position: relative;
 
 
 /* Configure a container for the toggle */
-.sheet-radios {
+.radios {
   display:flex;
   align-items: center;
 }
 
 /* Configure the button styling. This example makes it look like a checkbox. */
-button.sheet-toggle {
+button.toggle {
   padding: 0;
   border: solid 1px #a8a8a8;
   cursor: pointer;
@@ -907,9 +1005,10 @@ button.sheet-toggle {
   font-size: 12px;
   margin: 0px;
   padding: 0px !important;
+  color: black;
 }
 
-div.sheet-toggle-container {
+div.toggle-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -917,16 +1016,23 @@ div.sheet-toggle-container {
 }
 
 /* Hide the "checked" section of the toggle if the attribute value is not "1". */
-input.sheet-toggle:not([value="true"]) ~ button.sheet-toggle > span.sheet-checked {
+input.toggle:not([value="true"]) ~ button.toggle > span.checked {
   opacity:0;
 }
 
-.charsheet .sheet-wrapper {
+.charsheet .wrapper {
     padding: 2vh;
     padding-right: 3vh;
-    margin-left: 100px;
+    margin-left: 50px;
 }
-.charsheet .sheet-giftname {
+.charsheet .giftname {
+    border: none;
+    color: #efdabf; 
+    text-align: center;
+    width: 400px;    
+    border-radius:7px;
+}
+.charsheet .bondname {
     border: none;
     color: #efdabf; 
     text-align: center;
@@ -934,42 +1040,82 @@ input.sheet-toggle:not([value="true"]) ~ button.sheet-toggle > span.sheet-checke
     border-radius:7px;
 }
 
-.charsheet .sheet-wrapper button {
-    background-color: transparent !important;
-    border-color: black;
+.charsheet .wrapper button {
+    background-color: rgba(255,255,255, 0.099) !important;
+    background-image: none;
+    border-color: transparent;
+    color: black;
     height: 30px;
     width: 70px;
     padding: 4px !important;
-    box-shadow: none;
+    box-shadow: 0px 7px 5px #5b3a21;
+    text-shadow: none;
     margin: 0;
 }
-.charsheet .sheet-wrapper textarea {
+.charsheet .wrapper textarea {
     margin-top: 0.5vw;
     height: 300px;
     display: none;
 }
-.charsheet input.sheet-toggle {
+
+.wrapper-gifts{
+    padding: 2vh;
+    padding-right: 3vh;
+    margin-left: 100px;
+}
+
+.wrapper-gifts button {
+    background-color: rgba(255,255,255, 0.099) !important;
+    background-image: none;
+    border-color: transparent;
+    color: black;
+    height: 30px;
+    width: 70px;
+    padding: 4px !important;
+    box-shadow: 0px 7px 5px #5b3a21;
+    text-shadow: none;
+    margin: 0;
+}
+.wrapper-gifts textarea {
+    margin-top: 0.5vw;
+    height: 300px;
+    display: none;
+    color: white;
+}
+
+.charsheet input.toggle {
     border: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     color: inherit;
 }
-.charsheet input.sheet-toggle::after{
+.charsheet input.toggle::after{
     content: "⏷";
 }
-.charsheet input.sheet-toggle:checked::after{
+.charsheet input.toggle:checked::after{
     content: "⏶";
 }
-.charsheet input.sheet-toggle:checked ~ textarea {
+.charsheet input.toggle:checked ~ textarea {
     display:block;
 }
-.repitem{
+.wrapper .repitem{
     margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.wrapper .repitem input{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.wrapper-gifts .repitem{
+    margin-top: 11px;
     margin-bottom: 10px;
 }
 
-.repitem:nth-child(1):before {
+.wrapper-gifts .repitem:nth-child(1):before {
     content: "Primary";
     font-size: 1.2em;
     text-decoration: underline solid;
@@ -979,7 +1125,8 @@ input.sheet-toggle:not([value="true"]) ~ button.sheet-toggle > span.sheet-checke
     padding-left:3vh;
     color: #efdabf;  
 }
-.repitem:nth-child(2):before {
+
+.wrapper-gifts .repitem:nth-child(2):before {
     content: "Equipped";
     font-size: 1.2em;
     text-decoration: underline solid;
@@ -989,7 +1136,8 @@ input.sheet-toggle:not([value="true"]) ~ button.sheet-toggle > span.sheet-checke
     padding-left:3vh;
     color: #efdabf;  
 }
-.repitem:nth-child(7):before {
+
+.wrapper-gifts .repitem:nth-child(7):before {
     content: "Unequipped";
     font-size: 1.2em;
     text-decoration: underline solid;
@@ -997,5 +1145,4 @@ input.sheet-toggle:not([value="true"]) ~ button.sheet-toggle > span.sheet-checke
     top: 11px;
     left: -140px;
     padding-left:3vh;
-    color: #efdabf;  
 }
