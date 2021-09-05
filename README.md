@@ -1,4 +1,4 @@
-# Windrose V1.6
+# Windrose V1.7
 Windrose is a TTRPG system that involves rolling colored d6s.<br/>
 The effort of this project is to develop windrose character sheets and API scripts to be used in [Roll20](https://roll20.net/welcome).<br/>
 V1 to V2 will require re-implment tokens and setting up character sheets.
@@ -24,8 +24,8 @@ Again, create a new script using the link and copy all the code over.<br/>
 Once, installed the Image Set property must be checked in the character sheet. In addtion, a rollable table must be used as the token.<br/>
  <img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/config_imageset.png" width="50%"/>
  <img align="middle" src="https://raw.githubusercontent.com/Ozarke/windrose/main/assets/github/rolltable_example.png"/> <br/>
-As of version 1.05 as long as the roll table is ordered in ["red","blue","yellow","green","purple","orange","black","grey","white"] with any mutlple of missing color in between the roll table will adjust based of the enabled attributes. If you have red, yellow and green enabled. Order the rolltable default, red, blue, green.
-If a an image is unavailable for a enabled color duplicating the default image to replace the missing images.
+Roll tables should be ordered ["red","blue","yellow","green","purple","orange","black","grey","white"]. If you have red, blue and green images checked. Order the rolltable default, red, blue, green skipping yellow.
+If a an image is unavailable just leave the image setting unchecked for that attribute.
 
 ### Character Sheet Installation
 Navigate to the Game Details Page of the target game. Once there, Select Game Settings from Settings dropdown.<br/>
@@ -34,10 +34,11 @@ From the drop down select Custom.<br/>
 In this area copy windrose.html to the HTML Layout section and windrose.css to the CSS Sytling section.
 
 # Version
-V1.00 Intial Version.<br/>
-V1.01 Added Roll to Do and Roll to Dye template.<br/>
-V1.02 Added white and grey dye, fixed colors for character sheets swing, added version attribute and new initializtion function.<br/>
-V1.03 Added Gifts Section, Improved Config Area, Increased width of character sheet.<br/>
-V1.04 Added tooltip for attribute level and attribute name. Updated colors for green, purple, and orange. <br/>
+V1.00 intial version.<br/>
+V1.01 added Roll to Do and Roll to Dye template.<br/>
+V1.02 added white and grey dye, fixed colors for character sheets swing, added version attribute and new initializtion function.<br/>
+V1.03 added Gifts Section, Improved Config Area, Increased width of character sheet.<br/>
+V1.04 added tooltip for attribute level and attribute name. Updated colors for green, purple, and orange. <br/>
 V1.05 improved set image for attributes. <br/>
-V1.06 devlopment
+V1.06 small changes <br/>
+V1.07 added ignite, roll to recover, attribute image checkbox, health max and min, swingless rolls to do have 1d6.

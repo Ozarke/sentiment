@@ -15,7 +15,7 @@ on('chat:message',function(msg){
             sendChat("Error", "Character ID passed incorrectly. Please use  &#64;&#123;selected&#124;character_id&#125; or  &#64;&#123;target&#124;character_id&#125;");
             return;
         }
-        var code_version = 'V1.06';
+        var code_version = 'V1.07';
         var character_version = getAttrByName(character.id,"version","current");
         if(typeof(character_version) === "undefined")
         {
@@ -51,6 +51,12 @@ on('chat:message',function(msg){
                 break;
             case 'drop-swing':
                 drop_swing(character);
+                break;
+            case 'ignite':
+                ignite(character);
+                break;
+            case 'recover':
+                recover(character);
                 break;
             case 'prompt-attribute-change':
                 prompt_attribute_change(character,args[3]); // attribute change type
@@ -269,7 +275,7 @@ function roll_to_do(obj,selection,d6,bonus) {
                 total_val += swing_value + swing_level;
                 if(getAttrByName(obj.id, swing_color +'_hidden') !== 'true' || getAttrByName(obj.id, 'whisper','Current') === 'true')
                 {
-                    outstr += '{{' + swing_color+ '= ['+swing_value+'](!wind dye '+obj.id+')}}';
+                    outstr += '{{' + swing_color+ '= ['+swing_value+'](!wind ignite '+obj.id+')}}';
                     if(swing_level !== 0)
                     {
                         outstr += '{{swing=+ [['+ swing_level +']] **Attribute Level**}}';
@@ -277,17 +283,29 @@ function roll_to_do(obj,selection,d6,bonus) {
                 }
                 else
                 {
-                    outstr += '{{H= [H](!wind hidden '+obj.id+')}}';
-                    outstr += '{{swing=+ [H](!wind hidden '+obj.id+') **Attribute Level**}}';                    
+                    outstr += '{{H= [H](!wind ignite '+obj.id+')}}';
+                    outstr += '{{swing=+ [H](!wind ignite '+obj.id+') **Attribute Level**}}';                    
                 }
-            }
-            else
-                outstr += '{{swing= No Swing}}';
             break;
+            }
+            //if no swing use none.
         case 'none':
             if(swing_color !== '')
                 drop_swing(obj);
+            var roll_val = randomInteger(6);
+            total_val += roll_val;
+            
+            outstr += '{{swing= No Swing}}';
+            outstr += '{{'+ 'grey' +'= ';
+                if(roll_val !== 6 && roll_val !== 1)
+                    outstr += '[' + roll_val + ']';
+                else if (roll_val === 6)
+                        outstr += '[<div style="color:#247305">' + roll_val + '</div>]';
+                    else
+                         outstr += '[<div style="color:#730505">' + roll_val + '</div>]';
+            outstr += '(!wind dye '+obj.id+')}}';            
             break;
+            
         default:
             var roll_val = randomInteger(6);
             if(swing_color !== '')
@@ -588,7 +606,7 @@ function set_image(obj,color)
     if(color !== '')
         for(i=0; i<colors.length; i++)
         {   
-            if(getAttrByName(obj.id,colors[i] + '_enabled') === 'true'){
+            if(getAttrByName(obj.id,colors[i] + '_img') === 'true'){
                 enabled_count = enabled_count + 1;
                 if(colors[i] === color)
                 {
@@ -680,6 +698,135 @@ function drop_swing(obj) {
         sendCustomChat(obj, outstr, '/em ');
         set_image(obj,'');
     }
+    else
+    {
+        outstr += 'has no active swing.';
+        sendCustomChat(obj, outstr, true);
+    }
+}
+
+function ignite(obj) {
+    var outstr = '';
+    var swing_color = findObjs({
+        name: 'swing_color',
+        _type: 'attribute',
+        _characterid: obj.id
+    }, {caseInsensitive: true})[0];
+    var color = swing_color.get('current');
+    if(color !== '')
+    {
+        swing_color.set('current','');
+
+        var swing_value = findObjs({
+            name: 'swing_value',
+            _type: 'attribute',
+            _characterid: obj.id
+        }, {caseInsensitive: true})[0];
+
+        swing_value.set('current',0);
+        
+        var attribute = findObjs({
+        name: color+'_lockedout',
+        _type: 'attribute',
+        _characterid: obj.id
+        }, {caseInsensitive: true})[0];
+    
+        attribute.set('current','true');
+
+        outstr = 'has ignited there ';
+        if(getAttrByName(obj.id,color+'_hidden') === 'false')
+            outstr += color;
+        else
+            outstr += '???';
+        outstr += ' swing it is now locked out!';
+        sendCustomChat(obj, outstr, '/em ');
+        set_image(obj,'');
+    }
+    else
+    {
+        outstr += 'has no active swing.';
+        sendCustomChat(obj, outstr, true);
+    }
+}
+
+function recover(obj) {
+    var colors = ["red","yellow","blue","green","orange","purple","black","white","grey"];
+    var swing_color = getAttrByName(obj.id,"swing_color","Current");
+    var background_color = '';    
+    var header_url = '';
+    header_url = 'https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-dye.jpg';
+    if(swing_color !== "" && getAttrByName(obj.id,swing_color + "_hidden") === 'false')
+    {
+            background_color = swing_color;
+            header_url = 'https://raw.githubusercontent.com/Ozarke/windrose/main/assets/Roll-to-dye-clear.png';
+    } 
+    var outstr = '&{template:roll}{{color='+ background_color + '}}{{title=[Dye](' + header_url + ')}} ';
+    var roll_val = 0;
+    var roll_level = 0;
+    var level_total = 0;
+    var total_val = 0;
+    var attribute = 0;
+    var colorstr = '';
+    var color_name = '';
+    var questionmarks = '';
+    for(i=0; i<colors.length; i++)
+    {
+        if(getAttrByName(obj.id, colors[i]+'_enabled','Current') === 'true'){
+            if(getAttrByName(obj.id, colors[i]+'_hidden') === 'true' && getAttrByName(obj.id, 'whisper','Current') === 'false')
+            {
+                questionmarks += 'H';
+                colorstr = questionmarks;
+            }
+            else
+                colorstr = colors[i];
+            outstr +='{{' + colorstr;
+            attribute = findObjs({
+                name: colors[i] + '_value',
+                _type: 'attribute',
+                _characterid: obj.id
+            }, {caseInsensitive: true})[0];
+
+            if(getAttrByName(obj.id,colors[i] + '_wounded','Current') === 'true'){
+                    outstr += '= [W](!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';  
+                    attribute.set('current','W');
+            }else{
+                    roll_level = 0;
+                    roll_level = parseInt(getAttrByName(obj.id, colors[i]+'_level','Current'));
+                    if(colors[i] === swing_color)
+                        roll_val = parseInt(getAttrByName(obj.id,"swing_value","Current"));
+                    else
+                        roll_val = randomInteger(6);
+
+                    total_val += roll_val + roll_level; 
+                    level_total += roll_level;
+                    attribute.set('current',roll_val);
+                    if(getAttrByName(obj.id, colors[i]+'_hidden') === 'true' && getAttrByName(obj.id, 'whisper','Current') === 'false')
+                    {
+                        outstr += '= [H](!wind hidden '+obj.id+')}}';
+                        if(colors[i] === swing_color)
+                            outstr += '{{swing=+ [H](!wind hidden '+obj.id+') **Attribute Level**}}';
+                    }
+                    else
+                    {
+                        if(roll_val !== 6 && roll_val !== 1)
+                            outstr += '= [' + roll_val + ']';
+                        else if (roll_val === 6)
+                                outstr += '= [<div style="color:#247305">' + roll_val + '</div>]';
+                             else
+                                outstr += '= [<div style="color:#730505">' + roll_val + '</div>]';
+                        outstr+= '(!wind set-swing ' + obj.id +' ' + colors[i] + ' '+ roll_val+ ' true)}}';                            
+                        outstr += '{{'+colors[i]+'_level='+roll_level+'}}';
+                        color_name = getAttrByName(obj.id, colors[i]+'_name');
+                        if(color_name !== '' && color_name !== 'Attribute Name')
+                            outstr += '{{'+colors[i]+'_name='+color_name+'}}';                 
+                    }                       
+            }
+        }
+    }
+    outstr += '{{swing=+ [['+ level_total +']] **Total Attribute Levels**}}';
+    outstr += '{{total= [['+ total_val + ']]}}';
+    
+    sendCustomChat(obj, outstr);
 }
 
 function init(obj) {
@@ -780,6 +927,17 @@ function init(obj) {
                 characterid: obj.id
             });
     }
+    
+    for (i = 0; i < attributes.length; i++)
+    {
+        if (typeof (findObjs({name: attributes[i] + "_img", _type: "attribute", _characterid: obj.id})[0]) === "undefined")
+            createObj("attribute", {
+                name: attributes[i] + "_img", // Hidden
+                current: 'false',
+                characterid: obj.id
+            });
+    }
+    
     if (typeof (findObjs({name: "dye_value", _type: "attribute", _characterid: obj.id})[0]) === "undefined")
         createObj("attribute", {
             name: "dye_value",
@@ -904,6 +1062,26 @@ function init(obj) {
     createObj("ability", {
         name: "set-swing",
         action: "!wind set-swing @{character_id} ?{Choose color |red|blue|yellow|green|purple|orange|black|grey|white}  ?{value|1|2|3|4|5|6}",
+        istokenaction: true,
+        characterid: obj.id
+    });
+    
+    mac = findObjs({name: "ignite", _type: "ability", _characterid: obj.id})[0];
+    if (typeof (mac) !== "undefined")
+        mac.remove();
+    createObj("ability", {
+        name: "ignite",
+        action: "!wind ignite @{character_id}",
+        istokenaction: true,
+        characterid: obj.id
+    });
+    
+    mac = findObjs({name: "recover", _type: "ability", _characterid: obj.id})[0];
+    if (typeof (mac) !== "undefined")
+        mac.remove();
+    createObj("ability", {
+        name: "recover",
+        action: "!wind recover @{character_id}",
         istokenaction: true,
         characterid: obj.id
     });

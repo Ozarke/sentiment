@@ -45,6 +45,7 @@ input[type="text"] {
   background-color: transparent;
   border-style: none none solid none;
   border-color: black;
+  text-align: center;
 }
 
 input[type="number"] {
@@ -52,6 +53,7 @@ input[type="number"] {
   border: none;
   color: white;
   font-size: 15px;
+  text-align: center;
 }
 
 textarea {
@@ -296,7 +298,7 @@ input[type=number].txtfield {
 
 .grid-column {
     display:grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
 }
 
 .left{
@@ -315,7 +317,7 @@ input[type=number].txtfield {
 
 div.sheet-main {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    color: #602749;    
+    color: #efdabf;    
 
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -352,8 +354,7 @@ div.attribute-values {
     grid-template-rows: auto auto;
     padding: 10px 10px 10px 10px;    
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto;    
 }
 
 div.gifts { 
@@ -398,8 +399,8 @@ div.repcontrol_edit button{
 }
 
 div.buttons-1 button{
-    height: 40px;
-    width: 215px;
+    height: 35px;
+    width: 255px;
     border-radius: 0px;
     -moz-appearance: none;
     background-color: rgba(255,255,255, 0.099) !important;
@@ -408,13 +409,14 @@ div.buttons-1 button{
     box-shadow: 0px 7px 5px #5b3a21;
     background-image: none;
     color: inherit;
-    padding: 7px !important;
+    margin: 7px !important;
+    padding: 0px !important;
     font-size: 1.3em;
     text-shadow: none;
 }
 div.buttons-2 button{
     height: 50px;
-    width: 215px;
+    width: 255px;
     border-radius: 0px;
     -moz-appearance: none;
     background-color: rgba(255,255,255, 0.099) !important;
@@ -423,12 +425,30 @@ div.buttons-2 button{
     box-shadow: 0px 7px 5px #5b3a21;
     background-image: none;
     color: inherit;
-    padding: 7px !important;
+    margin: 7px !important;
+    padding: 0px !important;
     font-size: 1.3em;
     text-shadow: none;
 }
 
 
+div.small-button {
+  display: grid;
+  text-align:center;
+  font-size: 1.3em;
+  color: #333;
+}
+div.small-button button{
+    height: 30px;
+    width: 119px;
+    text-transform: center;
+    justify-content: center;
+    font-size: 0.8em !important;
+    margin-top: 0px !important;
+    margin-bottom: 4px !important;
+    padding: 0px !important;
+    color: #efdabf;
+}
 div.attribute-settings { 
     grid-area: 2 / 2 / 3 / 4; 
     height: auto;
@@ -985,6 +1005,7 @@ button.toggle {
   font-size: 12px;
   margin: 0px;
   padding: 0px !important;
+  color: black;
 }
 
 div.toggle-container {
