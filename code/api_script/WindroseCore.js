@@ -644,10 +644,10 @@ function sendCustomChat(obj,outstr,special){
     }    
     else
     {
-        if(typeof(special) === "undefined" || special === false)
-            sendChat(name, outstr);
-        else
+        if(special === '/em ')
             sendChat(name, special + outstr);
+        else
+            sendChat(name, outstr);
     }
 }
 
