@@ -488,6 +488,12 @@ function set_attribute_level(obj,color,value)
         _type: 'attribute',
         _characterid: obj.id
     }, {caseInsensitive: true})[0];
+    
+    if (typeof(attribute) === "undefined"){
+        sendChat("Error", "Attribute Entered In-Correctly. Try: red _wounded");
+        return;
+    }
+    
     attribute.set("current",value);
     outstr += 'has set ';
     if(getAttrByName(obj.id,color+'_hidden') === 'false')
@@ -620,9 +626,12 @@ function set_image(obj,color)
     if((getAttrByName(obj.id, 'whisper','Current') !== 'true' || _.contains(control,'all') === true) && getAttrByName(obj.id, 'image_set','Current') === 'true')
     {
         let tokens = findObjs({type:'graphic', represents: obj.id});
-        if(tokens[0].get("sides").split("|").length<(index+1))
-            index = 0;
-        tokens.forEach(token => sendChat(obj.get("name"),'!change-token-img --token_id '+token.id+' --set '+index));
+        if(typeof tokens != "undefined" && tokens != null && tokens.length != null && tokens.length > 0)
+        {
+            if(tokens[0].get("sides").split("|").length<(index+1))
+                index = 0;
+            tokens.forEach(token => sendChat(obj.get("name"),'!change-token-img --token_id '+token.id+' --set '+index));
+        }
     }
 }
 
