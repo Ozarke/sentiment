@@ -1,6 +1,6 @@
-# Windrose API V1.7.1
-Windrose is a TTRPG system that involves rolling colored d6s.<br/>
-The effort of this project is to develop windrose character sheets and API scripts to be used in [Roll20](https://roll20.net/welcome).<br/>
+# Sentiment API V1.7.1
+Sentiment (formally windrose) is a TTRPG system that involves rolling colored d6s.<br/>
+The effort of this project is to develop Sentiment character sheets and API scripts to be used in [Roll20](https://roll20.net/welcome).<br/>
 V1 to V2 will require re-implment tokens and setting up character sheets.
 # Installation
 This api requires Pro level subscribtion on roll20. The code provided are both the API scripts and a character sheet. These must be used together.
@@ -14,7 +14,7 @@ In this area two new scripts will be added by pressing the New Script link.
   <img align="middle" src="https://roll20.zendesk.com/hc/article_attachments/360067047013/Roll20__Online_virtual_tabletop_for_pen_and_paper_RPGs_and_board_games.png" width="60%"/>
 </p>
 
-The first script that should be added is the WindroseCore.js. This is the core API for the scripting done for windrose system.<br/>
+The first script that should be added is the WindroseCore.js. This is the core API for the scripting done for Sentiment system.<br/>
 The name the script added does not matter and can be named anything.<br/>
 Copy the entire text of the WindroseCore.js into this new script.<br/>
 <br/>
