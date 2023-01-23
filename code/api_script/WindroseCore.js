@@ -742,7 +742,7 @@ function ignite(obj) {
     
         attribute.set('current','true');
 
-        outstr = 'has ignited there ';
+        outstr = 'has ignited their ';
         if(getAttrByName(obj.id,color+'_hidden') === 'false')
             outstr += color;
         else
